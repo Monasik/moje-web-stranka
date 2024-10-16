@@ -4,12 +4,24 @@
     padding: 60px 0; /* Vnitřní odsazení pro celou sekci stránky O mně */
     text-align: center; /* Vycentrování textu na stránce */
     background-color: #f0f2f5; /* Světlý odstín pozadí pro lepší kontrast s textem */
+    min-height: calc(100vh - 160px); /* Zajištění minimální výšky stránky, aby se patička držela na spodku */
 }
 
 .about-page h2 {
     font-size: 2.5rem; /* Nastaví velikost nadpisu */
     color: #0044cc; /* Modrá barva nadpisu */
     margin: 20px 0; /* Mezera nad a pod nadpisem */
+}
+
+/* Stylizace patičky */
+footer {
+    background-color: #0044cc; /* Modré pozadí pro patičku */
+    color: white; /* Bílý text v patičce */
+    text-align: center; /* Vycentrování textu v patičce */
+    padding: 20px 0; /* Vnitřní odsazení patičky */
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Stylizace pro mobilní zařízení */
