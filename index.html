@@ -5,21 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finanční poradce</title>
     <link rel="stylesheet" href="styles.css"> <!-- Odkaz na externí CSS soubor -->
-    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-firestore.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBRdsZnE9I6yGcbceGGIAx2A7SQOKSxPE8",
+            authDomain: "finporadcejj.firebaseapp.com",
+            projectId: "finporadcejj",
+            storageBucket: "finporadcejj.appspot.com",
+            messagingSenderId: "440041733616",
+            appId: "1:440041733616:web:ebe62d3fc50abeab62b135",
+            measurementId: "G-D1L6Z1X68T"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Odesílání formuláře do Firestore
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('main-contact-form').addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                // Načtení hodnot z formuláře
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                try {
+                    // Přidání dat do kolekce 'contacts' ve Firestore
+                    await addDoc(collection(db, 'contacts'), {
+                        name: name,
+                        email: email,
+                        message: message,
+                        timestamp: serverTimestamp()
+                    });
+                    alert('Data byla úspěšně odeslána!');
+                } catch (error) {
+                    console.error('Chyba při odesílání dat: ', error);
+                    alert('Nastala chyba při odesílání dat.');
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <!-- Navigační lišta -->
-<nav>
-    <ul class="nav-menu">
-        <li><a href="omne.html">O mně</a></li>
-        <li><a href="sluzby.html">Služby</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-        <li><a href="kalkulacka.html">Kalkulačka</a></li>
-        <li><a href="partneri.html">Partneři</a></li>
-    </ul>
-</nav>
-
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="omne.html">O mně</a></li>
+            <li><a href="sluzby.html">Služby</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="kalkulacka.html">Kalkulačka</a></li>
+            <li><a href="partneri.html">Partneři</a></li>
+        </ul>
+    </nav>
 
     <!-- Hlavní sekce stránky -->
     <header>
@@ -47,12 +90,11 @@
         <div class="container">
             <h2>Moje služby</h2>
             <!-- Tlačítka pro kalkulace -->
-                <div class="service-buttons">
-                    <button class="service-btn">Chci si nechat spočítat životní pojištění</button>
-                    <button class="service-btn">Chci si nechat spočítat nezávazně úrokovou sazbu na úvěr</button>
-                    <button class="service-btn">Chci si nechat přepočítat pojištění vozu</button>
-                </div>
-
+            <div class="service-buttons">
+                <button class="service-btn">Chci si nechat spočítat životní pojištění</button>
+                <button class="service-btn">Chci si nechat spočítat nezávazně úrokovou sazbu na úvěr</button>
+                <button class="service-btn">Chci si nechat přepočítat pojištění vozu</button>
+            </div>
         </div>
     </section>
 
@@ -63,36 +105,34 @@
             <p class="contact-info-text">
                 Máte dotazy nebo potřebujete další informace? Prosíme, vyplňte své kontaktní údaje a napište nám, co vás zajímá. Ozveme se vám co nejdříve.
             </p>
-            <form>
-                <input type="text" placeholder="Vaše jméno" required>
-                <input type="email" placeholder="Váš email" required>
+            <form id="main-contact-form">
+                <input type="text" id="name" placeholder="Vaše jméno" required>
+                <input type="email" id="email" placeholder="Váš email" required>
                 
                 <!-- Phone input with country code selector and flags -->
                 <div class="phone-input">
                     <select required>
                         <option value="+420" selected>🇨🇿 +420</option>
                         <option value="+421">🇸🇰 +421</option>
-                        <option value="+43">🇦🇹 +43</option>
+                        <option value="+43">🇪🇹 +43</option>
                         <option value="+49">🇩🇪 +49</option>
                     </select>
                     <input type="tel" placeholder="Telefonní číslo" pattern="[0-9]{9}" required>
                 </div>
 
-                <textarea placeholder="Vaše zpráva" required></textarea>
+                <textarea id="message" placeholder="Vaše zpráva" required></textarea>
                 <button type="submit">Odeslat</button>
             </form>
         </div>
     </section>
 
-       <!-- Patička -->
-       <footer>
+    <!-- Patička -->
+    <footer>
         <div class="footer-container">
-           <div class="container">
-              <p>&copy; 2024 Finanční poradce. Všechna práva vyhrazena.</p>
-           </div>
-         </div>
+            <div class="container">
+                <p>&copy; 2024 Finanční poradce. Všechna práva vyhrazena.</p>
+            </div>
+        </div>
     </footer>
-
-
 </body>
 </html>
