@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O mně | Finanční poradce</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Odkaz na hlavní CSS soubor pro obecné styly -->
+    <link rel="stylesheet" href="omne.css"> <!-- Odkaz na nový CSS soubor pro stylizaci stránky O mně -->
+</head>
+<body>
+
+    <!-- Navigační lišta -->
+    <nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
+        <ul id="nav-menu" class="nav-menu">
+            <li><a href="index.html">Domů</a></li>
+            <li><a href="omne.html">O mně</a></li>
+            <li><a href="sluzby.html">Služby</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+
+    <!-- Sekce O mně -->
+    <section id="about-page" class="about-page">
+        <div class="container">
+            <h2>Stránka je aktuálně ve vývoji</h2>
+        </div>
+    </section>
+
+    <!-- Patička -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Finanční poradce. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
