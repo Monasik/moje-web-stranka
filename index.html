@@ -8,7 +8,7 @@
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
         // Your web app's Firebase configuration
         const firebaseConfig = {
@@ -27,6 +27,7 @@
 
         // Odesílání formuláře do Firestore
         document.addEventListener('DOMContentLoaded', () => {
+            // Odeslání dat z formuláře
             document.getElementById('main-contact-form').addEventListener('submit', async (event) => {
                 event.preventDefault();
 
@@ -49,6 +50,26 @@
                     alert('Nastala chyba při odesílání dat.');
                 }
             });
+
+            // Načtení a zobrazení dat z Firestore seřazených od nejnovějších po nejstarší
+            async function loadContacts() {
+                const contactsRef = collection(db, 'contacts');
+                const q = query(contactsRef, orderBy('timestamp', 'desc'));
+                const querySnapshot = await getDocs(q);
+
+                const contactList = document.getElementById('contact-list');
+                contactList.innerHTML = ''; // Vyčisti seznam, než přidáš nové položky
+
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `Jméno: ${data.name}, Email: ${data.email}, Zpráva: ${data.message}, Čas: ${data.timestamp?.toDate()}`;
+                    contactList.appendChild(listItem);
+                });
+            }
+
+            // Načíst kontakty po načtení stránky
+            loadContacts();
         });
     </script>
 </head>
@@ -123,6 +144,14 @@
                 <textarea id="message" placeholder="Vaše zpráva" required></textarea>
                 <button type="submit">Odeslat</button>
             </form>
+        </div>
+    </section>
+
+    <!-- Sekce zobrazující seznam kontaktů -->
+    <section id="contact-list-section">
+        <div class="container">
+            <h3>Seznam kontaktů (od nejnovějšího po nejstarší)</h3>
+            <ul id="contact-list"></ul>
         </div>
     </section>
 
