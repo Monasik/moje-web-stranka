@@ -84,3 +84,29 @@ footer {
 footer p {
     margin: 0;
 }
+
+/* Stylizace pro mobilní zařízení */
+@media only screen and (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-details, .contact-form {
+        width: 90%;
+        max-width: 500px;
+        margin-bottom: 20px;
+    }
+
+    .contact-page h2 {
+        font-size: 2rem;
+    }
+
+    .contact-details h3, .contact-form h3 {
+        font-size: 1.5rem;
+    }
+
+    .contact-form button {
+        width: 100%;
+    }
+} 
