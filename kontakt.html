@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt | Finanční poradce</title>
-    <link rel="stylesheet" href="kontakt.css"> <!-- Odkaz na nový CSS soubor pro stylizaci stránky kontakt -->
-    <link rel="stylesheet" href="styles.css"> <!-- Odkaz na hlavní CSS soubor pro obecné styly -->
+    <link rel="stylesheet" href="kontakt.css">
+    <link rel="stylesheet" href="styles.css">
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
         // Your web app's Firebase configuration
         const firebaseConfig = {
@@ -28,6 +28,7 @@
 
         // Odesílání formuláře do Firestore
         document.addEventListener('DOMContentLoaded', () => {
+            // Odeslání dat z formuláře
             document.querySelector('.contact-form form').addEventListener('submit', async (event) => {
                 event.preventDefault();
 
@@ -50,6 +51,26 @@
                     alert('Nastala chyba při odesílání dat.');
                 }
             });
+
+            // Načtení a zobrazení dat z Firestore seřazených od nejnovějších po nejstarší
+            async function loadContacts() {
+                const contactsRef = collection(db, 'contacts');
+                const q = query(contactsRef, orderBy('timestamp', 'desc'));
+                const querySnapshot = await getDocs(q);
+
+                const contactList = document.getElementById('contact-list');
+                contactList.innerHTML = ''; // Vyčisti seznam, než přidáš nové položky
+
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `Jméno: ${data.name}, Email: ${data.email}, Zpráva: ${data.message}, Čas: ${data.timestamp?.toDate()}`;
+                    contactList.appendChild(listItem);
+                });
+            }
+
+            // Načíst kontakty po načtení stránky
+            loadContacts();
         });
     </script>
 </head>
@@ -86,6 +107,14 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Sekce zobrazující seznam kontaktů -->
+    <section id="contact-list-section">
+        <div class="container">
+            <h3>Seznam kontaktů (od nejnovějšího po nejstarší)</h3>
+            <ul id="contact-list"></ul>
         </div>
     </section>
 
