@@ -6,9 +6,52 @@
     <title>Kontakt | Finanční poradce</title>
     <link rel="stylesheet" href="kontakt.css"> <!-- Odkaz na nový CSS soubor pro stylizaci stránky kontakt -->
     <link rel="stylesheet" href="styles.css"> <!-- Odkaz na hlavní CSS soubor pro obecné styly -->
-    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-firestore.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBRdsZnE9I6yGcbceGGIAx2A7SQOKSxPE8",
+            authDomain: "finporadcejj.firebaseapp.com",
+            projectId: "finporadcejj",
+            storageBucket: "finporadcejj.appspot.com",
+            messagingSenderId: "440041733616",
+            appId: "1:440041733616:web:ebe62d3fc50abeab62b135",
+            measurementId: "G-D1L6Z1X68T"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Odesílání formuláře do Firestore
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.contact-form form').addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                // Načtení hodnot z formuláře
+                const name = document.querySelector('.contact-form input[type="text"]').value;
+                const email = document.querySelector('.contact-form input[type="email"]').value;
+                const message = document.querySelector('.contact-form textarea').value;
+
+                try {
+                    // Přidání dat do kolekce 'contacts' ve Firestore
+                    await addDoc(collection(db, 'contacts'), {
+                        name: name,
+                        email: email,
+                        message: message,
+                        timestamp: serverTimestamp()
+                    });
+                    alert('Data byla úspěšně odeslána!');
+                } catch (error) {
+                    console.error('Chyba při odesílání dat: ', error);
+                    alert('Nastala chyba při odesílání dat.');
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 
