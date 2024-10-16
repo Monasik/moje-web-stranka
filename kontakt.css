@@ -125,3 +125,17 @@ footer p {
         text-align: center; /* Vycentruje text navigačních položek */
     }
 }
+
+@media only screen and (min-width: 769px) {
+    .hamburger {
+        display: none; /* Skryje hamburger ikonu na větších zařízeních */
+    }
+
+    .nav-menu {
+        display: flex; /* Zobrazí navigační menu */
+        justify-content: center; /* Položky budou vycentrovány */
+        gap: 20px; /* Mezera mezi jednotlivými položkami */
+        padding: 0; /* Odstraní vnitřní odsazení */
+        margin: 0; /* Odstraní vnější odsazení */
+    }
+}
