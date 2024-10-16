@@ -1,112 +1,106 @@
 /* Stylizace pro stránku kontakt */
 .contact-page {
-    padding: 60px 0;
-    background-color: #f0f2f5;
+    padding: 60px 0; /* Vnitřní odsazení pro celou sekci kontaktu */
+    background-color: #f0f2f5; /* Světlý odstín pozadí pro lepší kontrast s textem */
 }
 
 .contact-page h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #0044cc;
+    text-align: center; /* Vycentruje nadpis sekce kontaktu */
+    font-size: 2.5rem; /* Nastaví velikost nadpisu */
+    margin-bottom: 40px; /* Mezera pod nadpisem */
+    color: #0044cc; /* Modrá barva nadpisu */
 }
 
 .contact-info {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
+    display: flex; /* Použití flexboxu pro rozložení kontaktních údajů a formuláře */
+    justify-content: space-between; /* Rovnoměrné rozmístění mezi prvky */
+    flex-wrap: wrap; /* Prvky se přizpůsobí na menší obrazovky */
+    gap: 40px; /* Mezera mezi jednotlivými prvky */
 }
 
 .contact-details, .contact-form {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    min-width: 300px;
+    background-color: white; /* Bílé pozadí pro lepší kontrast s textem */
+    padding: 30px; /* Vnitřní odsazení pro lepší vzhled */
+    border-radius: 8px; /* Zaoblení rohů prvků */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Jemný stín pro lepší vizuální oddělení od pozadí */
+    flex: 1; /* Flexibilní velikost pro prvky */
+    min-width: 300px; /* Minimální šířka pro lepší responzivitu */
 }
 
 .contact-details h3, .contact-form h3 {
-    color: #0044cc;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+    color: #0044cc; /* Modrá barva nadpisu pro konzistentní design */
+    font-size: 1.8rem; /* Nastaví velikost nadpisu */
+    margin-bottom: 20px; /* Mezera pod nadpisem */
 }
 
 .contact-details p {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
+    font-size: 1.1rem; /* Nastaví velikost textu */
+    margin-bottom: 15px; /* Mezera mezi odstavci */
 }
 
 .contact-form form {
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Flexbox pro rozložení formuláře */
+    flex-direction: column; /* Položky formuláře budou pod sebou */
 }
 
 .contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
+    width: 100%; /* Nastaví šířku vstupů na 100% rodičovského prvku */
+    padding: 12px; /* Vnitřní odsazení pro lepší vzhled */
+    margin-bottom: 15px; /* Mezera mezi položkami formuláře */
+    border: 1px solid #ccc; /* Šedý okraj vstupů */
+    border-radius: 4px; /* Zaoblení rohů vstupů */
+    font-size: 1rem; /* Nastaví velikost písma */
+    transition: border-color 0.3s; /* Přechod pro změnu barvy okraje při zaměření */
 }
 
 .contact-form input:focus, .contact-form textarea:focus {
-    border-color: #0044cc;
-    outline: none;
+    border-color: #0044cc; /* Modrý okraj při zaměření */
+    outline: none; /* Odstraněno implicitní outline */
 }
 
 .contact-form button {
-    padding: 12px;
-    background-color: #0044cc;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 12px; /* Vnitřní odsazení tlačítka */
+    background-color: #0044cc; /* Modrá barva pozadí tlačítka */
+    color: white; /* Bílý text tlačítka */
+    border: none; /* Odstraněno implicitní ohraničení tlačítka */
+    border-radius: 4px; /* Zaoblení rohů tlačítka */
+    font-size: 1.2rem; /* Nastaví velikost písma */
+    cursor: pointer; /* Změna kurzoru při najetí myší na tlačítko */
+    transition: background-color 0.3s ease; /* Přechod pro změnu barvy pozadí tlačítka při najetí myší */
 }
 
 .contact-form button:hover {
-    background-color: #003399;
+    background-color: #003399; /* Tmavší modrá barva tlačítka při najetí myší */
 }
 
 /* Stylizace pro patičku */
 footer {
-    background-color: #0044cc;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
+    background-color: #0044cc; /* Modrá barva pozadí patičky */
+    color: white; /* Bílý text v patičce */
+    text-align: center; /* Vycentruje text v patičce */
+    padding: 20px 0; /* Vnitřní odsazení pro lepší vzhled */
 }
 
 footer p {
-    margin: 0;
+    margin: 0; /* Odstraněno implicitní odsazení odstavce */
 }
 
 /* Stylizace pro mobilní zařízení */
 @media only screen and (max-width: 768px) {
     .contact-info {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Položky kontaktu budou pod sebou na menších zařízeních */
+        gap: 20px; /* Menší mezera mezi prvky pro lepší vzhled na mobilu */
     }
 
-    .contact-details, .contact-form {
-        width: 90%;
-        max-width: 500px;
-        margin-bottom: 20px;
+    .container {
+        padding: 20px; /* Menší vnitřní odsazení pro lepší vzhled na mobilu */
     }
 
     .contact-page h2 {
-        font-size: 2rem;
+        font-size: 2rem; /* Zmenší velikost nadpisu pro lepší vzhled na mobilu */
     }
 
-    .contact-details h3, .contact-form h3 {
-        font-size: 1.5rem;
+    .contact-details, .contact-form {
+        padding: 20px; /* Menší vnitřní odsazení pro lepší vzhled na mobilu */
     }
-
-    .contact-form button {
-        width: 100%;
-    }
-} 
+}
