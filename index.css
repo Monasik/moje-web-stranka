@@ -1,0 +1,210 @@
+/* Stylizace pro hlavní stránku */
+
+/* Navigační lišta */
+nav {
+    background-color: #0044cc;
+    padding: 10px;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: #ffcc00;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+}
+
+/* Hlavní sekce */
+header {
+    background-color: #0044cc;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.5rem;
+}
+
+/* Sekce O mně */
+#about {
+    padding: 60px 0;
+    background-color: #f0f2f5;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.profile-photo {
+    max-width: 300px;
+    border-radius: 50%;
+}
+
+.about-text {
+    max-width: 600px;
+}
+
+/* Sekce Služby */
+#services {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.service-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.service-btn {
+    padding: 15px;
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.service-btn:hover {
+    background-color: #003399;
+}
+
+/* Kontaktní formulář */
+.contact {
+    padding: 60px 0;
+    background-color: #f0f2f5;
+}
+
+.contact-info-text {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+#main-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#main-contact-form input,
+#main-contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#main-contact-form input:focus,
+#main-contact-form textarea:focus {
+    border-color: #0044cc;
+    outline: none;
+}
+
+#main-contact-form button {
+    padding: 15px;
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#main-contact-form button:hover {
+    background-color: #003399;
+}
+
+/* Patička */
+footer {
+    background-color: #0044cc;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Stylizace pro mobilní zařízení */
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        text-align: center;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+
+    .service-buttons {
+        width: 90%;
+    }
+
+    #contact-list-section ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    .container {
+        padding: 20px;
+    }
+}
