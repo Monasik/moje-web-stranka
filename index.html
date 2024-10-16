@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanční poradce</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Odkaz na externí CSS soubor -->
+</head>
+<body>
+    <!-- Navigační lišta -->
+<nav>
+    <ul class="nav-menu">
+        <li><a href="omne.html">O mně</a></li>
+        <li><a href="sluzby.html">Služby</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="kalkulacka.html">Kalkulačka</a></li>
+        <li><a href="partneri.html">Partneři</a></li>
+    </ul>
+</nav>
+
+
+    <!-- Hlavní sekce stránky -->
+    <header>
+        <div class="container">
+            <h1>Váš osobní finanční poradce</h1>
+            <p>Pomůžeme vám najít ty nejlepší finanční produkty na míru vašim potřebám.</p>
+        </div>
+    </header>
+
+    <!-- Sekce O mně -->
+    <section id="about">
+        <div class="container">
+            <h2>O mně</h2>
+            <div class="about-content">
+                <img src="your-photo.jpg" alt="Foto finančního poradce" class="profile-photo">
+                <div class="about-text">
+                    <p>Jsem zkušený finanční poradce se zaměřením na životní pojištění, úvěry a pojištění vozidel. Mým cílem je pomoci klientům dosáhnout jejich finančních cílů s jistotou a bez zbytečných komplikací.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekce Služby -->
+    <section id="services">
+        <div class="container">
+            <h2>Moje služby</h2>
+            <!-- Tlačítka pro kalkulace -->
+                <div class="service-buttons">
+                    <button class="service-btn">Chci si nechat spočítat životní pojištění</button>
+                    <button class="service-btn">Chci si nechat spočítat nezávazně úrokovou sazbu na úvěr</button>
+                    <button class="service-btn">Chci si nechat přepočítat pojištění vozu</button>
+                </div>
+
+        </div>
+    </section>
+
+    <!-- Kontaktní formulář -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Kontaktujte mě</h2>
+            <p class="contact-info-text">
+                Máte dotazy nebo potřebujete další informace? Prosíme, vyplňte své kontaktní údaje a napište nám, co vás zajímá. Ozveme se vám co nejdříve.
+            </p>
+            <form>
+                <input type="text" placeholder="Vaše jméno" required>
+                <input type="email" placeholder="Váš email" required>
+                
+                <!-- Phone input with country code selector and flags -->
+                <div class="phone-input">
+                    <select required>
+                        <option value="+420" selected>🇨🇿 +420</option>
+                        <option value="+421">🇸🇰 +421</option>
+                        <option value="+43">🇦🇹 +43</option>
+                        <option value="+49">🇩🇪 +49</option>
+                    </select>
+                    <input type="tel" placeholder="Telefonní číslo" pattern="[0-9]{9}" required>
+                </div>
+
+                <textarea placeholder="Vaše zpráva" required></textarea>
+                <button type="submit">Odeslat</button>
+            </form>
+        </div>
+    </section>
+
+       <!-- Patička -->
+       <footer>
+        <div class="footer-container">
+           <div class="container">
+              <p>&copy; 2024 Finanční poradce. Všechna práva vyhrazena.</p>
+           </div>
+         </div>
+    </footer>
+
+
+</body>
+</html>

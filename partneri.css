@@ -1,0 +1,46 @@
+/* Stylizace pro stránku Partneři */
+.partners {
+    padding: 60px 0;
+    background-color: #f0f2f5; /* Světle šedé pozadí pro odlišení od jiných sekcí */
+}
+
+.partners h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #0044cc; /* Hlavní barva ladící se zbytkem webu */
+}
+
+.partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.partner-item {
+    flex-basis: 45%;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.partner-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.partner-item p {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Responsivita pro partnery */
+@media (max-width: 768px) {
+    .partner-item {
+        flex-basis: 100%;
+    }
+}
