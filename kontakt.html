@@ -6,73 +6,6 @@
     <title>Kontakt | Finanční poradce</title>
     <link rel="stylesheet" href="kontakt.css"> <!-- Odkaz na nový CSS soubor pro stylizaci stránky kontakt -->
     <link rel="stylesheet" href="styles.css"> <!-- Odkaz na hlavní CSS soubor pro obecné styly -->
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-        import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyBRdsZnE9I6yGcbceGGIAx2A7SQOKSxPE8",
-            authDomain: "finporadcejj.firebaseapp.com",
-            projectId: "finporadcejj",
-            storageBucket: "finporadcejj.appspot.com",
-            messagingSenderId: "440041733616",
-            appId: "1:440041733616:web:ebe62d3fc50abeab62b135",
-            measurementId: "G-D1L6Z1X68T"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        // Odesílání formuláře do Firestore
-        document.addEventListener('DOMContentLoaded', () => {
-            // Odeslání dat z formuláře
-            document.querySelector('.contact-form form').addEventListener('submit', async (event) => {
-                event.preventDefault();
-
-                // Načtení hodnot z formuláře
-                const name = document.querySelector('.contact-form input[type="text"]').value;
-                const email = document.querySelector('.contact-form input[type="email"]').value;
-                const message = document.querySelector('.contact-form textarea').value;
-
-                try {
-                    // Přidání dat do kolekce 'contacts' ve Firestore
-                    await addDoc(collection(db, 'contacts'), {
-                        name: name,
-                        email: email,
-                        message: message,
-                        timestamp: serverTimestamp()
-                    });
-                    alert('Data byla úspěšně odeslána!');
-                } catch (error) {
-                    console.error('Chyba při odesílání dat: ', error);
-                    alert('Nastala chyba při odesílání dat.');
-                }
-            });
-
-            // Načtení a zobrazení dat z Firestore seřazených od nejnovějších po nejstarší
-            async function loadContacts() {
-                const contactsRef = collection(db, 'contacts');
-                const q = query(contactsRef, orderBy('timestamp', 'desc'));
-                const querySnapshot = await getDocs(q);
-
-                const contactList = document.getElementById('contact-list');
-                contactList.innerHTML = ''; // Vyčisti seznam, než přidáš nové položky
-
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    const listItem = document.createElement('li');
-                    listItem.textContent = `Jméno: ${data.name}, Email: ${data.email}, Zpráva: ${data.message}, Čas: ${data.timestamp?.toDate()}`;
-                    contactList.appendChild(listItem);
-                });
-            }
-
-            // Načíst kontakty po načtení stránky
-            loadContacts();
-        });
-    </script>
 </head>
 <body>
 
@@ -117,14 +50,6 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Sekce zobrazující seznam kontaktů -->
-    <section id="contact-list-section">
-        <div class="container">
-            <h3>Seznam kontaktů (od nejnovějšího po nejstarší)</h3>
-            <ul id="contact-list"></ul>
         </div>
     </section>
 
