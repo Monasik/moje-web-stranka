@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finanční poradce</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Odkaz na externí CSS soubor -->
+    <link rel="stylesheet" href="styles.css"> <!-- Odkaz na hlavní CSS soubor pro obecné styly -->
+    <link rel="stylesheet" href="index.css"> <!-- Odkaz na nový CSS soubor pro stylizaci hlavní stránky -->
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
@@ -76,7 +77,10 @@
 <body>
     <!-- Navigační lišta -->
     <nav>
-        <ul class="nav-menu">
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
+        <ul id="nav-menu" class="nav-menu">
             <li><a href="omne.html">O mně</a></li>
             <li><a href="sluzby.html">Služby</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
@@ -84,6 +88,13 @@
             <li><a href="partneri.html">Partneři</a></li>
         </ul>
     </nav>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
 
     <!-- Hlavní sekce stránky -->
     <header>
@@ -163,5 +174,6 @@
             </div>
         </div>
     </footer>
+
 </body>
 </html>
