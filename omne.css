@@ -1,0 +1,24 @@
+/* Stylizace pro stránku O mně */
+
+.about-page {
+    padding: 60px 0; /* Vnitřní odsazení pro celou sekci stránky O mně */
+    text-align: center; /* Vycentrování textu na stránce */
+    background-color: #f0f2f5; /* Světlý odstín pozadí pro lepší kontrast s textem */
+}
+
+.about-page h2 {
+    font-size: 2.5rem; /* Nastaví velikost nadpisu */
+    color: #0044cc; /* Modrá barva nadpisu */
+    margin: 20px 0; /* Mezera nad a pod nadpisem */
+}
+
+/* Stylizace pro mobilní zařízení */
+@media only screen and (max-width: 768px) {
+    .about-page {
+        padding: 40px 20px; /* Menší odsazení pro lepší vzhled na mobilních zařízeních */
+    }
+
+    .about-page h2 {
+        font-size: 2rem; /* Zmenší velikost nadpisu pro lepší čitelnost na mobilních zařízeních */
+    }
+}
