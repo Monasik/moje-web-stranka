@@ -26,6 +26,14 @@ footer {
 
 /* Stylizace pro mobilní zařízení */
 @media only screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+        color: white;
+    }
+
     .nav-menu {
         display: none;
         flex-direction: column;
@@ -36,9 +44,4 @@ footer {
         display: flex;
         text-align: center;
     }
-}
-
-/* Skrytí menu tlačítka na stránce O mně */
-.hamburger {
-    display: none;
 }
