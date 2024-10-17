@@ -26,10 +26,6 @@ footer {
 
 /* Stylizace pro mobilní zařízení */
 @media only screen and (max-width: 768px) {
-    .hamburger {
-        display: none;
-    }
-
     .nav-menu {
         display: none;
         flex-direction: column;
@@ -43,6 +39,6 @@ footer {
 }
 
 /* Skrytí menu tlačítka na stránce O mně */
-#about ~ .hamburger {
+.hamburger {
     display: none;
 }
