@@ -1,36 +1,50 @@
-/* Stylizace pro stránku O mně */
-
-.about-page {
-    padding: 60px 0; /* Vnitřní odsazení pro celou sekci stránky O mně */
-    text-align: center; /* Vycentrování textu na stránce */
-    background-color: #f0f2f5; /* Světlý odstín pozadí pro lepší kontrast s textem */
-    min-height: calc(100vh - 160px); /* Zajištění minimální výšky stránky, aby se patička držela na spodku */
+/* Stylizace pro stránku "O mně" */
+body, html {
+    height: 100%;
+    margin: 0;
 }
 
-.about-page h2 {
-    font-size: 2.5rem; /* Nastaví velikost nadpisu */
-    color: #0044cc; /* Modrá barva nadpisu */
-    margin: 20px 0; /* Mezera nad a pod nadpisem */
+.container {
+    min-height: calc(100vh - 60px); /* Výška obrazovky minus výška hlavičky */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Stylizace patičky */
 footer {
-    background-color: #0044cc; /* Modré pozadí pro patičku */
-    color: white; /* Bílý text v patičce */
-    text-align: center; /* Vycentrování textu v patičce */
-    padding: 20px 0; /* Vnitřní odsazení patičky */
-    position: relative;
+    position: fixed;
     bottom: 0;
     width: 100%;
+    background-color: #0044cc;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
 }
 
 /* Stylizace pro mobilní zařízení */
 @media only screen and (max-width: 768px) {
-    .about-page {
-        padding: 40px 20px; /* Menší odsazení pro lepší vzhled na mobilních zařízeních */
+    .hamburger {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+        color: white;
     }
 
-    .about-page h2 {
-        font-size: 2rem; /* Zmenší velikost nadpisu pro lepší čitelnost na mobilních zařízeních */
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
     }
+
+    .nav-menu.active {
+        display: flex;
+        text-align: center;
+    }
+}
+
+/* Skrytí hamburgeru v desktopové verzi */
+.hamburger {
+    display: none;
 }
