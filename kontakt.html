@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt | Finanční poradce</title>
-    <link rel="stylesheet" href="kontakt.css"> <!-- Odkaz na nový CSS soubor pro stylizaci stránky kontakt -->
-    <link rel="stylesheet" href="styles.css"> <!-- Odkaz na hlavní CSS soubor pro obecné styly -->
+    <link rel="stylesheet" href="styles.css"> <!-- Odkaz na nový CSS soubor pro stylizaci stránky kontakt -->
+    <link rel="stylesheet" href="kontakt.css"> <!-- Odkaz na hlavní CSS soubor pro obecné styly -->
 </head>
 <body>
 
@@ -45,6 +45,18 @@
                     <form>
                         <input type="text" placeholder="Vaše jméno" required>
                         <input type="email" placeholder="Váš email" required>
+                                        
+                         <!-- Phone input with country code selector and flags -->
+                         <div class="phone-input">
+                           <select required>
+                              <option value="+420" selected>🇨🇿 +420</option>
+                              <option value="+421">🇸🇰 +421</option>
+                              <option value="+43">🇪🇹 +43</option>
+                              <option value="+49">🇩🇪 +49</option>
+                            </select>
+                           <input type="tel" placeholder="Telefonní číslo" pattern="[0-9]{9}" required>
+                          </div>
+
                         <textarea placeholder="Vaše zpráva" required></textarea>
                         <button type="submit">Odeslat</button>
                     </form>
@@ -61,5 +73,4 @@
     </footer>
 
 </body>
-<link rel="stylesheet" href="kontakt.css">
 </html>

@@ -5,13 +5,15 @@
     box-sizing: border-box;
 }
 
-body {
+body, html {
     font-family: 'Arial', sans-serif;
     background-color: #f0f2f5;
     color: #333;
     line-height: 1.6;
     padding: 0;
     margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden; /* Skryje horizontální scroll bar */
 }
 
 /* Kontejner pro centraci a maximální šířku */
@@ -126,7 +128,6 @@ header p {
 form input, form textarea, form select {
     width: 100%;
     padding: 12px;
-    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
@@ -269,13 +270,15 @@ nav {
 
 /* Stylizace pro patičku */
 footer {
-    position: relative; /* Footer bude relativní k obsahu stránky */
-    width: 100%;
     background-color: #0044cc;
     color: white;
     text-align: center;
     padding: 20px 0;
-    margin-top: auto; /* Přidáme automatický margin, aby footer byl vždy na konci */
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
 }
 
 /* Stylizace pro menu tlačítko (hamburger) */
@@ -303,3 +306,4 @@ footer {
         text-align: center;
     }
 }
+    

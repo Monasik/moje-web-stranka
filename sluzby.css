@@ -1,99 +1,255 @@
-/* Stylizace pro hlavní stránku */
+/* Reset default stylů */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Kontejner pro centraci a maximální šířku */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+/* Hlavní záhlaví */
+header {
+    background-color: #0044cc;
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Sekce O mně */
+#about {
+    background-color: white;
+    padding: 40px 0;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.about-text {
+    max-width: 800px;
+}
+
+#about h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+/* Sekce Služby */
+#services {
+    padding: 40px 0;
+    background-color: #e9ebf0;
+}
+
+#services h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.service-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.service-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.service-item h3 {
+    color: #0044cc;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Kontaktní formulář */
+.contact {
+    background-color: white;
+    padding: 40px 0;
+    margin: 40px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.contact h2 {
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #0044cc;
+}
+
+.contact-info-text {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+form input, form textarea, form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+form input:focus, form textarea:focus, form select:focus {
+    border-color: #0044cc;
+    outline: none;
+}
+
+/* Stylizace telefonního vstupu s předvolbou */
+.phone-input {
+    display: flex;
+    align-items: center;
+}
+
+.phone-input select {
+    width: 100px; /* Kratší šířka předvolby */
+    margin-right: 10px; /* Mezera mezi předvolbou a číslem */
+    padding: 10px; /* Vnitřní okraje pro lepší vzhled */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 1rem;
+}
+
+.phone-input input[type="tel"] {
+    flex: 1; /* Umožní, aby vstup pro číslo zabíral zbytek místa */
+    padding: 10px; /* Vnitřní okraje pro lepší vzhled */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #003399;
+}
+
+/* Responsivita */
+@media (max-width: 768px) {
+    .service-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-item {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-photo {
+        margin-bottom: 20px;
+    }
+}
 
 /* Navigační lišta */
 nav {
     background-color: #0044cc;
-    padding: 10px;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .nav-menu {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 0;
     margin: 0;
 }
 
-.nav-menu li a {
+.nav-menu li {
+    margin: 0 20px;
+}
+
+.nav-menu a {
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
-.nav-menu li a:hover {
-    color: #ffcc00;
+.nav-menu a:hover {
+    color: #ffdd57;
 }
 
-.hamburger {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
-    color: white;
-}
-
-/* Hlavní sekce */
-header {
-    background-color: #0044cc;
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
-}
-
-header h1 {
-    font-size: 3rem;
-    margin: 0;
-}
-
-header p {
-    font-size: 1.5rem;
-}
-
-/* Sekce O mně */
-#about {
-    padding: 60px 0;
-    background-color: #f0f2f5;
-}
-
-.about-content {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.profile-photo {
-    max-width: 300px;
-    border-radius: 50%;
-}
-
-.about-text {
-    max-width: 600px;
-}
-
-/* Sekce Služby */
-#services {
-    padding: 60px 0;
-    text-align: center;
-}
-
+/* Stylizace tlačítek ve službách */
 .service-buttons {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 600px;
-    margin: 0 auto;
+    justify-content: space-around;
+    margin-top: 20px;
 }
 
 .service-btn {
-    padding: 15px;
     background-color: #0044cc;
     color: white;
     border: none;
-    border-radius: 4px;
-    font-size: 1.2rem;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -102,73 +258,45 @@ header p {
     background-color: #003399;
 }
 
-/* Kontaktní formulář */
-.contact {
-    padding: 60px 0;
-    background-color: #f0f2f5;
+/* Responsivita tlačítek */
+@media (max-width: 768px) {
+    .service-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-btn {
+        width: 80%;
+        margin-bottom: 15px;
+    }
 }
 
-.contact-info-text {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-}
-
-#main-contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-#main-contact-form input,
-#main-contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-#main-contact-form input:focus,
-#main-contact-form textarea:focus {
-    border-color: #0044cc;
-    outline: none;
-}
-
-#main-contact-form button {
-    padding: 15px;
-    background-color: #0044cc;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#main-contact-form button:hover {
-    background-color: #003399;
-}
-
-/* Patička */
+/* Stylizace pro patičku */
 footer {
     background-color: #0044cc;
     color: white;
     text-align: center;
     padding: 20px 0;
+    margin-top: auto;
+    width: 100%;
 }
 
 footer p {
     margin: 0;
 }
 
-/* Stylizace pro mobilní zařízení */
+/* Stylizace pro menu tlačítko (hamburger) */
+.hamburger {
+    display: none;
+}
+
 @media only screen and (max-width: 768px) {
     .hamburger {
         display: block;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+        color: white;
     }
 
     .nav-menu {
@@ -180,43 +308,5 @@ footer p {
     .nav-menu.active {
         display: flex;
         text-align: center;
-    }
-
-    .about-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header h1 {
-        font-size: 2.5rem;
-    }
-
-    header p {
-        font-size: 1.2rem;
-    }
-
-    .service-buttons {
-        width: 90%;
-    }
-
-    #contact-list-section ul {
-        padding: 0;
-        list-style: none;
-    }
-
-    .container {
-        padding: 20px;
-    }
-}
-
-/* Skrytí tlačítka menu v desktopové verzi */
-.hamburger {
-    display: none;
-}
-
-/* Zobrazit tlačítko menu v mobilní verzi */
-@media only screen and (max-width: 768px) {
-    .hamburger {
-        display: block;
     }
 }
