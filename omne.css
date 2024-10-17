@@ -44,4 +44,17 @@ footer {
         display: flex;
         text-align: center;
     }
+
+    /* Skrýt menu po kliknutí mimo nabídku */
+    body {
+        position: relative;
+    }
+}
+
+.hamburger.active + .nav-menu {
+    display: flex;
+}
+
+body.clicked-outside .nav-menu {
+    display: none;
 }
