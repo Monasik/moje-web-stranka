@@ -1,4 +1,4 @@
-/* Stylizace pro stránku služby */
+/* Stylizace pro hlavní stránku */
 
 /* Navigační lišta */
 nav {
@@ -51,34 +51,106 @@ header p {
     font-size: 1.5rem;
 }
 
-/* Sekce Služby */
-#services {
+/* Sekce O mně */
+#about {
     padding: 60px 0;
     background-color: #f0f2f5;
 }
 
-.service-item {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.profile-photo {
+    max-width: 300px;
+    border-radius: 50%;
+}
+
+.about-text {
+    max-width: 600px;
+}
+
+/* Sekce Služby */
+#services {
+    padding: 60px 0;
     text-align: center;
-    transition: transform 0.3s ease;
 }
 
-.service-item:hover {
-    transform: translateY(-10px);
+.service-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.service-item h3 {
-    font-size: 1.8rem;
-    color: #0044cc;
-    margin-bottom: 20px;
+.service-btn {
+    padding: 15px;
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.service-item p {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
+.service-btn:hover {
+    background-color: #003399;
+}
+
+/* Kontaktní formulář */
+.contact {
+    padding: 60px 0;
+    background-color: #f0f2f5;
+}
+
+.contact-info-text {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+#main-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#main-contact-form input,
+#main-contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#main-contact-form input:focus,
+#main-contact-form textarea:focus {
+    border-color: #0044cc;
+    outline: none;
+}
+
+#main-contact-form button {
+    padding: 15px;
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#main-contact-form button:hover {
+    background-color: #003399;
 }
 
 /* Patička */
@@ -109,62 +181,42 @@ footer p {
         display: flex;
         text-align: center;
     }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+
+    .service-buttons {
+        width: 90%;
+    }
+
+    #contact-list-section ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    .container {
+        padding: 20px;
+    }
 }
 
-/* Skrytí hamburgeru v desktopové verzi */
+/* Skrytí tlačítka menu v desktopové verzi */
 .hamburger {
     display: none;
 }
 
-/* Interaktivita pro mobilní menu */
-nav .hamburger {
-    display: block;
-    cursor: pointer;
-}
-
-nav .hamburger.active + .nav-menu {
-    display: flex;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-#services .service-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-}
-
-.service-item {
-    flex: 1;
-    min-width: 300px;
-}
-
-/* Interaktivní zobrazení menu */
-nav {
-    position: relative;
-}
-
-.hamburger {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-}
-
-/* Skrýt menu, když klikneme mimo nabídku */
-document.addEventListener('click', function(event) {
-    const navMenu = document.querySelector('.nav-menu');
-    const hamburger = document.querySelector('.hamburger');
-    if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
-        navMenu.classList.remove('active');
+/* Zobrazit tlačítko menu v mobilní verzi */
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
     }
-});
+}
