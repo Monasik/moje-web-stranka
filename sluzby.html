@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Služby | Finanční poradce</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Odkaz na hlavní CSS soubor pro obecné styly -->
+    <link rel="stylesheet" href="sluzby.css"> <!-- Odkaz na CSS soubor pro stylizaci stránky služby -->
+</head>
+<body>
+    <!-- Navigační lišta -->
+    <nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
+        <ul id="nav-menu" class="nav-menu">
+            <li><a href="index.html">Domů</a></li>
+            <li><a href="omne.html">O mně</a></li>
+            <li><a href="sluzby.html">Služby</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+
+    <!-- Sekce Služby -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Služby, které nabízím</h2>
+            <p>Poskytuji širokou škálu finančních služeb, které jsou přizpůsobeny vašim potřebám. Mým cílem je pomoci vám vybrat ty nejlepší produkty na trhu.</p>
+            <div class="service-list">
+                <div class="service-item">
+                    <h3>Životní pojištění</h3>
+                    <p>Pomůžu vám zajistit, že vaši blízcí budou chráněni v případě neočekávaných událostí. Nabízím poradenství v oblasti životního pojištění a pomůžu vám najít nejvhodnější řešení.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Úvěry</h3>
+                    <p>Chcete si pořídit bydlení, auto nebo zlepšit svou finanční situaci? Pomůžu vám s výběrem nejvýhodnějšího úvěru a provedu vás celým procesem.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Pojištění vozidel</h3>
+                    <p>Zajistím pro vás optimální pojištění vašeho vozidla za co nejlepší cenu, aby váš majetek byl dobře chráněn a vy jste měli klid na duši.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patička -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Finanční poradce. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+</body>
+</html>
