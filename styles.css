@@ -162,7 +162,6 @@ form input:focus, form textarea:focus, form select:focus {
     font-size: 1rem;
 }
 
-
 form button {
     width: 100%;
     padding: 12px;
@@ -200,6 +199,7 @@ form button:hover {
         margin-bottom: 20px;
     }
 }
+
 /* Navigační lišta */
 nav {
     background-color: #0044cc;
@@ -269,13 +269,37 @@ nav {
 
 /* Stylizace pro patičku */
 footer {
+    position: relative; /* Footer bude relativní k obsahu stránky */
+    width: 100%;
     background-color: #0044cc;
     color: white;
     text-align: center;
     padding: 20px 0;
-    margin-top: 40px;
+    margin-top: auto; /* Přidáme automatický margin, aby footer byl vždy na konci */
 }
 
-footer p {
-    margin: 0;
+/* Stylizace pro menu tlačítko (hamburger) */
+.hamburger {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+        color: white;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        text-align: center;
+    }
 }
