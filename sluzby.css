@@ -104,13 +104,6 @@ footer p {
         align-items: center;
     }
 
-        .hamburger {
-        display: block; /* Zobrazí hamburger ikonu na menších zařízeních */
-        font-size: 24px; /* Nastaví velikost ikony */
-        cursor: pointer; /* Nastaví kurzor na ukazatel při najetí myší */
-        padding: 10px; /* Přidá vnitřní odsazení kolem ikony */
-        color: white; /* Nastaví barvu ikony na bílou */
-    }
     .container {
         width: 90%;
     }
