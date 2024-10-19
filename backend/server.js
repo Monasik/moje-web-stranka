@@ -5,7 +5,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(cors()); // Povolit CORS pro všechny požadavky
+app.use(cors({
+    origin: 'https://jakub-jelinek.netlify.app'  // Doména frontendu
+}));
+ // Povolit CORS pro všechny požadavky
 
 // Funkce pro prodlevu
 function delay(ms) {
