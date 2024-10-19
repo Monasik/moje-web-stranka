@@ -6,8 +6,7 @@ const rateLimit = require('express-rate-limit');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Nastavení CORS
-app.use(express.json());
+// Nastavení CORS - Aplikujeme jako první
 app.use(cors({
     origin: (origin, callback) => {
         const allowedOrigins = ['https://jakub-jelinek.netlify.app'];
@@ -25,7 +24,10 @@ app.use(cors({
 // Přidání explicitního zpracování OPTIONS požadavků
 app.options('*', cors());
 
-// Konfigurace Rate Limiteru
+// Nastavení pro zpracování JSON
+app.use(express.json());
+
+// Konfigurace Rate Limiteru - Aplikujeme až po CORS
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minut
     max: 100, // maximálně 100 požadavků za 15 minut
