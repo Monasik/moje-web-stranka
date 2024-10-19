@@ -6,9 +6,11 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors({
-    origin: 'https://jakub-jelinek.netlify.app'  // Doména frontendu
+    origin: 'https://jakub-jelinek.netlify.app', // Ujistěte se, že zde máte aktuální URL svého frontendu
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    allowedHeaders: 'Content-Type,Authorization'
 }));
- // Povolit CORS pro všechny požadavky
 
 // Funkce pro prodlevu
 function delay(ms) {
