@@ -2,3 +2,4 @@
   "express": "^4.x.x",
   "axios": "^0.x.x",
   "express-rate-limit": "^6.7.0"
+}
