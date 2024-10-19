@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors({
     origin: (origin, callback) => {
-        const allowedOrigins = ['https://jakub-jelinek.netlify.app', 'https://moje-web-stranka-tgky.vercel.app'];
+        const allowedOrigins = ['https://jakub-jelinek.netlify.app', 'https://moje-web-stranka.vercel.app'];
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
