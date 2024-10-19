@@ -63,6 +63,13 @@
         </div>
     </section>
 
+    <div>
+        <textarea id="userMessage" placeholder="Zadejte svou zprávu"></textarea>
+        <button onclick="sendMessageToChatGPT()">Odeslat</button>
+        <div id="response"></div>
+    </div>
+    
+
     <!-- Kontaktní formulář -->
     <section id="contact" class="contact">
         <div class="container">
@@ -99,6 +106,35 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        async function sendMessageToChatGPT() {
+            const message = document.getElementById('userMessage').value;
+            const responseDiv = document.getElementById('response');
+            const apiKey = "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";
+    
+            try {
+                const response = await fetch("https://api.openai.com/v1/chat/completions", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${apiKey}`,
+                    },
+                    body: JSON.stringify({
+                        model: "gpt-3.5-turbo",
+                        messages: [{ role: "user", content: message }],
+                    }),
+                });
+    
+                const data = await response.json();
+                responseDiv.textContent = data.choices[0].message.content;
+            } catch (error) {
+                responseDiv.textContent = "Error connecting to ChatGPT API";
+                console.error("Error:", error);
+            }
+        }
+    </script>
+    
 
 </body>
 </html>
