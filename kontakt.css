@@ -9,6 +9,8 @@ body {
     flex-direction: column;
 }
 
+
+
 .contact-page {
     flex: 1;
     padding: 40px 0; /* Vnitřní odsazení pro celou sekci kontaktu */

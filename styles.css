@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+
 body, html {
     font-family: 'Arial', sans-serif;
     background-color: #f0f2f5;
@@ -13,6 +14,8 @@ body, html {
     padding: 0;
     margin: 0;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     overflow-x: hidden; /* Skryje horizontální scroll bar */
 }
 
@@ -21,6 +24,7 @@ body, html {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+    flex: 1;
 }
 
 /* Hlavní záhlaví */
@@ -275,6 +279,7 @@ footer {
     text-align: center;
     padding: 20px 0;
     margin-top: auto;
+    width: 100%;
 }
 
 footer p {
@@ -306,4 +311,79 @@ footer p {
         text-align: center;
     }
 }
-    
+
+
+/* Stylizace chatboxu */
+.chatbox {
+    width: 100%;
+    max-width: 400px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.chatbox-header {
+    background-color: #0044cc;
+    color: white;
+    padding: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.chatbox-body {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.user-message, .chatgpt-response {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.user-message {
+    background-color: #e9ebf0;
+    text-align: right;
+}
+
+.chatgpt-response {
+    background-color: #f0f2f5;
+    text-align: left;
+}
+
+.chatbox-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.chatbox-input textarea {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.chatbox-input button {
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chatbox-input button:hover {
+    background-color: #003399;
+}

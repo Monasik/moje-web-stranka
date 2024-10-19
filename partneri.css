@@ -44,3 +44,25 @@
         flex-basis: 100%;
     }
 }
+
+/* Stylizace pro patičku */
+footer {
+    background-color: #0044cc;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Kontejner pro centraci a maximální šířku */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
+}
