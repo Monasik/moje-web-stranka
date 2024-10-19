@@ -6,11 +6,19 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors({
-    origin: 'https://jakub-jelinek.netlify.app', // Ujistěte se, že zde máte aktuální URL svého frontendu
+    origin: (origin, callback) => {
+        const allowedOrigins = ['https://jakub-jelinek.netlify.app', 'https://moje-web-stranka-fq3homnui-jakub-jelineks-projects.vercel.app'];
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     allowedHeaders: 'Content-Type,Authorization'
 }));
+
 
 // Funkce pro prodlevu
 function delay(ms) {
