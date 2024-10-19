@@ -1,13 +1,16 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
+const rateLimit = require('express-rate-limit');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Nastavení CORS
 app.use(express.json());
 app.use(cors({
     origin: (origin, callback) => {
-        const allowedOrigins = ['https://jakub-jelinek.netlify.app']; // Pouze povolený frontend
+        const allowedOrigins = ['https://jakub-jelinek.netlify.app'];
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
@@ -19,8 +22,18 @@ app.use(cors({
     allowedHeaders: 'Content-Type,Authorization'
 }));
 
-// Přidání explicitního zpracování `OPTIONS` požadavků
+// Přidání explicitního zpracování OPTIONS požadavků
 app.options('*', cors());
+
+// Konfigurace Rate Limiteru
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minut
+    max: 100, // maximálně 100 požadavků za 15 minut
+    message: 'Překročen limit požadavků, zkuste to znovu později.'
+});
+
+// Použití Rate Limiteru na endpoint /chat
+app.use('/chat', limiter);
 
 // Funkce pro prodlevu
 function delay(ms) {
