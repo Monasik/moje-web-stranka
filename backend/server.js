@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors({
     origin: (origin, callback) => {
-        const allowedOrigins = ['https://jakub-jelinek.netlify.app', 'https://moje-web-stranka.vercel.app'];
+        const allowedOrigins = ['https://jakub-jelinek.netlify.app']; // Pouze povolený frontend
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
@@ -33,7 +33,7 @@ app.post('/chat', async (req, res) => {
     const userMessage = req.body.message;
 
     try {
-        console.log('Před voláním OpenAI API s klíčem:', apiKey ? 'klíč přítomen' : 'klíč chybí');
+        console.log('Před voláním OpenAI API');
         // Přidání prodlevy 1 sekundu (1000 ms)
         await delay(1000);
 
@@ -52,7 +52,7 @@ app.post('/chat', async (req, res) => {
     } catch (error) {
         console.error('Chyba při volání API:', error.message);
         if (error.response) {
-            console.error('Stavová kód odpovědi:', error.response.status);
+            console.error('Stavový kód odpovědi:', error.response.status);
             console.error('Tělo odpovědi:', error.response.data);
         }
         res.status(500).send('Chyba při volání OpenAI');
