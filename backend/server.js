@@ -5,12 +5,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(cors({
-    origin: 'https://jakub-jelinek.netlify.app',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-    allowedHeaders: 'Content-Type,Authorization'
-}));
+app.use(cors());
+
 
 // Přidání explicitního zpracování `OPTIONS` požadavků
 app.options('*', cors());
