@@ -19,6 +19,8 @@ app.use(cors({
     allowedHeaders: 'Content-Type,Authorization'
 }));
 
+// Přidání explicitního zpracování `OPTIONS` požadavků
+app.options('*', cors());
 
 // Funkce pro prodlevu
 function delay(ms) {
