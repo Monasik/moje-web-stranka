@@ -86,27 +86,27 @@
         </div>
     </section>
 
-<!-- Ikona pro otevření chatboxu -->
-<button id="chatbox-toggle" onclick="toggleChatbox()">
-    💬
-</button>
-
-<!-- Sekce Chatbox -->
-<section id="chatbox" class="chatbox" style="display: none;"> <!-- Chatbox je defaultně skrytý -->
-    <div id="chatbox-header">
-        <h2>Chat s námi</h2>
-        <button id="chatbox-close" onclick="toggleChatbox()">×</button>
-    </div>
-    <div id="chatbox-body" class="chatbox-body">
-        <div id="response"></div>
-    </div>
-    <div class="chatbox-input">
-        <textarea id="userMessage" placeholder="Zadejte svou zprávu..."></textarea>
-        <button onclick="sendMessageToChatGPT()">Odeslat</button>
-    </div>
-</section>
-
-<script>
+    <!-- Ikona pro otevření chatboxu -->
+    <button id="chatbox-toggle" onclick="toggleChatbox()">
+        💬
+    </button>
+    
+    <!-- Sekce Chatbox -->
+    <section id="chatbox" class="chatbox" style="display: none;"> <!-- Chatbox je defaultně skrytý -->
+        <div id="chatbox-header">
+            <h2>Chat s námi</h2>
+            <button id="chatbox-close" onclick="toggleChatbox()">×</button>
+        </div>
+        <div id="chatbox-body" class="chatbox-body">
+            <div id="response"></div>
+        </div>
+        <div class="chatbox-input">
+            <textarea id="userMessage" placeholder="Zadejte svou zprávu..."></textarea>
+            <button onclick="sendMessageToChatGPT()">Odeslat</button>
+        </div>
+    </section>
+    
+    <script>
     // Funkce pro zavření a otevření chatboxu
     function toggleChatbox() {
         const chatbox = document.getElementById('chatbox');
@@ -146,7 +146,7 @@
         }
         document.getElementById('userMessage').value = ''; // Vyprázdnit textarea po odeslání
     }
-</script>
+    </script>
 
 
     <!-- Kontaktní formulář -->
