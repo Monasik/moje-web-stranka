@@ -5,7 +5,6 @@
     box-sizing: border-box;
 }
 
-
 body, html {
     font-family: 'Arial', sans-serif;
     background-color: #f0f2f5;
@@ -312,6 +311,21 @@ footer p {
     }
 }
 
+/* Ikona chatu (pro otevření) */
+#chatbox-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
 
 /* Stylizace chatboxu */
 #chatbox {
