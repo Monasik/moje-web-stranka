@@ -71,45 +71,56 @@
         </div>
     </section>
 
-    <!-- Sekce Chatbox -->
-    <section id="chatbox" class="chatbox">
-        <div class="chatbox-header">Chat s námi</div>
-        <div id="chatbox-body" class="chatbox-body">
-            <div id="response"></div>
-        </div>
-        <div class="chatbox-input">
-            <textarea id="userMessage" placeholder="Zadejte svou zprávu..."></textarea>
-            <button onclick="sendMessageToChatGPT()">Odeslat</button>
-        </div>
-    </section>
+<!-- Sekce Chatbox -->
+<section id="chatbox" class="chatbox">
+    <div id="chatbox-header">
+        <h2>Chat s námi</h2>
+        <button id="chatbox-close" onclick="toggleChatbox()">×</button>
+    </div>
+    <div id="chatbox-body" class="chatbox-body">
+        <div id="response"></div>
+    </div>
+    <div class="chatbox-input">
+        <textarea id="userMessage" placeholder="Zadejte svou zprávu..."></textarea>
+        <button onclick="sendMessageToChatGPT()">Odeslat</button>
+    </div>
+</section>
 
-    <script>
-        async function sendMessageToChatGPT() {
-            const userMessage = document.getElementById('userMessage').value;
-            try {
-                const response = await fetch('https://moje-web-stranka.vercel.app/chat', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ message: userMessage })
-                });
+<script>
+    // Funkce pro zavření a otevření chatboxu
+    function toggleChatbox() {
+        const chatbox = document.getElementById('chatbox');
+        chatbox.style.display = (chatbox.style.display === 'none' || chatbox.style.display === '') ? 'flex' : 'none';
+    }
 
-                if (!response.ok) {
-                    throw new Error('Chyba při volání API');
-                }
+    // Funkce pro odeslání zprávy do ChatGPT
+    async function sendMessageToChatGPT() {
+        const userMessage = document.getElementById('userMessage').value;
+        try {
+            const response = await fetch('https://moje-web-stranka.vercel.app/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userMessage })
+            });
 
-                const data = await response.json();
-                const chatBody = document.getElementById('chatbox-body');
-                chatBody.innerHTML += `<div class="user-message">${userMessage}</div>`;
-                chatBody.innerHTML += `<div class="chatgpt-response">${data.response}</div>`;
-            } catch (error) {
-                console.error('Chyba:', error);
-                document.getElementById('response').innerText = 'Něco se pokazilo, zkuste to prosím později.';
+            if (!response.ok) {
+                throw new Error('Chyba při volání API');
             }
-            document.getElementById('userMessage').value = ''; // Vyprázdnit textarea po odeslání
+
+            const data = await response.json();
+            const chatBody = document.getElementById('chatbox-body');
+            chatBody.innerHTML += `<div class="user-message">${userMessage}</div>`;
+            chatBody.innerHTML += `<div class="chatgpt-response">${data.response}</div>`;
+        } catch (error) {
+            console.error('Chyba:', error);
+            document.getElementById('response').innerText = 'Něco se pokazilo, zkuste to prosím později.';
         }
-    </script>
+        document.getElementById('userMessage').value = ''; // Vyprázdnit textarea po odeslání
+    }
+</script>
+
 
     <!-- Kontaktní formulář -->
     <section id="contact" class="contact">
