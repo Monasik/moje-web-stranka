@@ -150,32 +150,70 @@
 
 
     <!-- Kontaktní formulář -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 style="text-align: center;">Kontaktujte mě</h2>
-            <p class="contact-info-text">
-                Máte dotazy nebo potřebujete další informace? Prosíme, vyplňte své kontaktní údaje a napište nám, co vás zajímá. Ozveme se vám co nejdříve.
-            </p>
-            <form id="main-contact-form">
-                <input type="text" id="name" placeholder="Vaše jméno" required>
-                <input type="email" id="email" placeholder="Váš email" required>
-                
-                <!-- Phone input with country code selector and flags -->
-                <div class="phone-input">
-                    <select required>
-                        <option value="+420" selected>🇨🇿 +420</option>
-                        <option value="+421">🇸🇰 +421</option>
-                        <option value="+43">🇹🇰 +43</option>
-                        <option value="+49">🇩🇪 +49</option>
-                    </select>
-                    <input type="tel" placeholder="Telefonní číslo" pattern="[0-9]{9}" required>
-                </div>
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 style="text-align: center;">Kontaktujte mě</h2>
+        <p class="contact-info-text">
+            Máte dotazy nebo potřebujete další informace? Prosíme, vyplňte své kontaktní údaje a napište nám, co vás zajímá. Ozveme se vám co nejdříve.
+        </p>
+        <form id="main-contact-form">
+            <input type="text" id="name" placeholder="Vaše jméno" required>
+            <input type="email" id="email" placeholder="Váš email" required>
+            
+            <!-- Phone input with country code selector and flags -->
+            <div class="phone-input">
+                <select id="countryCode" required>
+                    <option value="+420" selected>🇨🇿 +420</option>
+                    <option value="+421">🇸🇰 +421</option>
+                    <option value="+43">🇹🇰 +43</option>
+                    <option value="+49">🇩🇪 +49</option>
+                </select>
+                <input type="tel" id="phone" placeholder="Telefonní číslo" pattern="[0-9]{9}" required>
+            </div>
 
-                <textarea id="message" placeholder="Vaše zpráva" required></textarea>
-                <button type="submit">Odeslat</button>
-            </form>
-        </div>
-    </section>
+            <textarea id="message" placeholder="Vaše zpráva" required></textarea>
+            <button type="submit">Odeslat</button>
+        </form>
+    </div>
+</section>
+
+<script>
+    document.getElementById('main-contact-form').addEventListener('submit', async function(event) {
+        event.preventDefault(); // Zabraň defaultnímu chování formuláře
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const countryCode = document.getElementById('countryCode').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
+
+        const formData = {
+            name: name,
+            email: email,
+            phone: `${countryCode}${phone}`,
+            message: message
+        };
+
+        try {
+            const response = await fetch('https://your-vercel-backend-url.com/send-to-hubspot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                alert('Formulář byl úspěšně odeslán.');
+            } else {
+                alert('Něco se pokazilo. Zkuste to znovu.');
+            }
+        } catch (error) {
+            console.error('Chyba při odesílání:', error);
+            alert('Něco se pokazilo. Zkuste to znovu.');
+        }
+    });
+</script>
 
     <!-- Patička -->
     <footer>
