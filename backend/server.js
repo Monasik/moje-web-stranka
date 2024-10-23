@@ -41,7 +41,9 @@ function delay(ms) {
 }
 
 const apiKey = process.env.OPENAI_API_KEY;
+const hubspotApiKey = process.env.HUBSPOT_API_KEY;
 
+// Endpoint pro chat s OpenAI
 app.post('/chat', async (req, res) => {
     const userMessage = req.body.message;
 
@@ -72,6 +74,37 @@ app.post('/chat', async (req, res) => {
     }
 });
 
+// Endpoint pro odesílání dat do HubSpotu
+app.post('/send-to-hubspot', async (req, res) => {
+    const { name, email, phone, message } = req.body;
+
+    try {
+        const hubspotResponse = await axios.post(
+            'https://api.hubapi.com/contacts/v1/contact',
+            {
+                properties: [
+                    { property: 'firstname', value: name },
+                    { property: 'email', value: email },
+                    { property: 'phone', value: phone },
+                    { property: 'message', value: message }
+                ]
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${hubspotApiKey}`,
+                    'Content-Type': 'application/json'
+                }
+            }
+        );
+
+        res.status(200).send('Data odeslána do HubSpotu.');
+    } catch (error) {
+        console.error('Chyba při odesílání do HubSpotu:', error.message);
+        res.status(500).send('Chyba při odesílání do HubSpotu.');
+    }
+});
+
+// Testovací endpoint
 app.get('/test', (req, res) => {
     res.send('Server is up and running.');
 });
