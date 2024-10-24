@@ -1,0 +1,125 @@
+/* Kalkulacka.css */
+
+/* Kontejner pro kalkulačky */
+.calculator {
+    padding: 50px 0;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+.calculator h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.calculator p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.calculator-options {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.calculator-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+
+.calculator-item h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.calculator-item p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.calculator-item .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.calculator-item .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Sekce jednotlivých kalkulaček */
+.calculator-form {
+    padding: 50px 0;
+    background-color: #ffffff;
+    text-align: left;
+}
+
+.calculator-form h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.calculator-form form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.calculator-form label {
+    display: block;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.calculator-form input,
+.calculator-form select,
+.calculator-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.calculator-form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.calculator-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .calculator-options {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .calculator-item {
+        width: 80%;
+    }
+}
