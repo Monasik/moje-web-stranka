@@ -6,14 +6,9 @@
     <title>Kalkulačka | Finanční poradce</title>
     <link rel="stylesheet" href="styles.css"> <!-- Odkaz na hlavní CSS soubor -->
     <link rel="stylesheet" href="kalkulacka.css"> <!-- Specifický CSS pro kalkulačku -->
-    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon.png">
 </head>
 <body>
+
 
     <!-- Navigační lišta -->
     <nav>
@@ -30,13 +25,6 @@
         </ul>
     </nav>
 
-    <script>
-        function toggleMenu() {
-            const navMenu = document.getElementById('nav-menu');
-            navMenu.classList.toggle('active');
-        }
-    </script>
-
     <!-- Sekce Kalkulačka -->
     <section id="calculator" class="calculator">
         <div class="container">
@@ -45,48 +33,30 @@
 
             <div class="calculator-options">
                 <div class="calculator-item">
-                    <h3>Pojištění vozů</h3>
-                    <p>Vyplňte základní informace o vozidle a zjistěte nabídky pojištění.</p>
-                    <a href="#auto-insurance-calculator" class="btn">Otevřít kalkulačku</a>
+                    <h3>Životní pojištění</h3>
+                    <p>Vyplňte údaje a zjistěte nabídky životního pojištění.</p>
+                    <button onclick="showForm('life-insurance-form')" class="btn">Otevřít kalkulačku</button>
                 </div>
 
                 <div class="calculator-item">
-                    <h3>Osobní pojištění</h3>
-                    <p>Zjistěte více o možnostech životního a úrazového pojištění.</p>
-                    <a href="#personal-insurance-calculator" class="btn">Otevřít kalkulačku</a>
+                    <h3>Neživotní pojištění</h3>
+                    <p>Zobrazte si možnosti neživotního pojištění.</p>
+                    <button onclick="showForm('non-life-insurance-form')" class="btn">Otevřít kalkulačku</button>
                 </div>
 
                 <div class="calculator-item">
                     <h3>Úvěry</h3>
-                    <p>Porovnejte nabídky úvěrů a najděte tu nejlepší možnost financování.</p>
-                    <a href="#loan-calculator" class="btn">Otevřít kalkulačku</a>
+                    <p>Získejte přehled o možnostech úvěrů.</p>
+                    <button onclick="showForm('loan-calculator-form')" class="btn">Otevřít kalkulačku</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sekce pro různé kalkulačky -->
-    <section id="auto-insurance-calculator" class="calculator-form">
+    <!-- Formulář pro životní pojištění -->
+    <section id="life-insurance-form" class="calculator-form" style="display: block;">
         <div class="container">
-            <h3>Kalkulačka pojištění vozů</h3>
-            <form>
-                <label for="car-make">Značka vozidla:</label>
-                <input type="text" id="car-make" name="car-make" placeholder="Zadejte značku vozidla" required>
-
-                <label for="car-model">Model vozidla:</label>
-                <input type="text" id="car-model" name="car-model" placeholder="Zadejte model vozidla" required>
-
-                <label for="car-year">Rok výroby:</label>
-                <input type="number" id="car-year" name="car-year" placeholder="Zadejte rok výroby" required>
-
-                <button type="submit" class="btn">Vypočítat</button>
-            </form>
-        </div>
-    </section>
-
-    <section id="personal-insurance-calculator" class="calculator-form">
-        <div class="container">
-            <h3>Kalkulačka osobního pojištění</h3>
+            <h3>Kalkulačka životního pojištění</h3>
             <form>
                 <label for="age">Věk:</label>
                 <input type="number" id="age" name="age" placeholder="Zadejte váš věk" required>
@@ -99,15 +69,99 @@
         </div>
     </section>
 
-    <section id="loan-calculator" class="calculator-form">
+    <!-- Formulář pro neživotní pojištění -->
+    <section id="non-life-insurance-form" class="calculator-form" style="display: none;">
         <div class="container">
-            <h3>Kalkulačka úvěrů</h3>
-            <form>
-                <label for="loan-amount">Výše úvěru:</label>
-                <input type="number" id="loan-amount" name="loan-amount" placeholder="Zadejte výši úvěru" required>
+            <h3>Kalkulačka neživotního pojištění</h3>
+            <div class="non-life-options" id="non-life-options">
+                <h4>Vyberte typ pojištění:</h4>
+                <div class="non-life-options-buttons">
+                    <button onclick="showNonLifeSubForm('auto-insurance-form')" class="btn">Auto</button>
+                    <button onclick="showNonLifeSubForm('home-insurance-form')" class="btn">Dům/Byt</button>
+                    <button onclick="showNonLifeSubForm('other-insurance-form')" class="btn">Ostatní</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <label for="loan-term">Doba splácení (v letech):</label>
-                <input type="number" id="loan-term" name="loan-term" placeholder="Zadejte dobu splácení" required>
+    <!-- Formulář pro pojištění auta -->
+    <section id="auto-insurance-form" class="non-life-sub-form" style="display: none;">
+        <div class="container">
+            <h3>Pojištění vozidla</h3>
+            <form>
+                <label for="coverage-type">Typ pojištění:</label>
+                <select id="coverage-type" name="coverage-type">
+                    <option value="pov">POV</option>
+                    <option value="hav">HAV</option>
+                    <option value="pov-hav">POV + HAV</option>
+                </select>
+
+                <label for="car-value">Hodnota vozu:</label>
+                <input type="number" id="car-value" name="car-value" placeholder="Zadejte hodnotu vozu" required>
+
+                <label for="annual-mileage">Očekávaný roční nájezd km:</label>
+                <input type="number" id="annual-mileage" name="annual-mileage" placeholder="Zadejte očekávaný nájezd km" required>
+
+                <label for="anniversary-date">Výroční datum (nepovinné):</label>
+                <input type="date" id="anniversary-date" name="anniversary-date">
+
+                <button type="submit" class="btn">Vypočítat</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Formulář pro pojištění Dům/Byt -->
+    <section id="home-insurance-form" class="non-life-sub-form" style="display: none;">
+        <div class="container">
+            <h3>Pojištění Dům/Byt</h3>
+            <form>
+                <label for="property-type">Typ nemovitosti:</label>
+                <select id="property-type" name="property-type">
+                    <option value="house">Dům</option>
+                    <option value="apartment">Byt</option>
+                </select>
+
+                <!-- Formulář pro Dům -->
+                <div id="house-form" style="display: none;">
+                    <label for="house-value">Hodnota domu:</label>
+                    <input type="number" id="house-value" name="house-value" placeholder="Zadejte hodnotu domu">
+
+                    <label for="household-value">Hodnota domácnosti:</label>
+                    <input type="number" id="household-value" name="household-value" placeholder="Zadejte hodnotu domácnosti">
+
+                    <label for="last-renovation-date">Datum poslední rekonstrukce (nepovinné):</label>
+                    <input type="date" id="last-renovation-date" name="last-renovation-date">
+
+                    <label for="property-liability">Pojištění odpovědnosti nemovitosti (nepovinné):</label>
+                    <input type="checkbox" id="property-liability" name="property-liability">
+
+                    <label for="personal-liability">Pojištění odpovědnosti v běžném životě (nepovinné):</label>
+                    <input type="checkbox" id="personal-liability" name="personal-liability">
+                </div>
+
+                <!-- Formulář pro Byt -->
+                <div id="apartment-form" style="display: none;">
+                    <label for="apartment-household-value">Hodnota domácnosti:</label>
+                    <input type="number" id="apartment-household-value" name="apartment-household-value" placeholder="Zadejte hodnotu domácnosti">
+
+                    <label for="apartment-personal-liability">Pojištění odpovědnosti v běžném občanském životě (nepovinné):</label>
+                    <input type="checkbox" id="apartment-personal-liability" name="apartment-personal-liability">
+                </div>
+
+                <button type="submit" class="btn">Vypočítat</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Formulář pro Ostatní -->
+    <section id="other-insurance-form" class="non-life-sub-form" style="display: none;">
+        <div class="container">
+            <h3>Ostatní pojištění</h3>
+            <form>
+                <label for="custom-request">Popište požadované pojištění:</label>
+                <textarea id="custom-request" name="custom-request" placeholder="Zadejte, co byste si přáli"></textarea>
+
+                <p>Nápověda: Zaměstnanecká odpovědnost, odpovědnost firem, ...</p>
 
                 <button type="submit" class="btn">Vypočítat</button>
             </form>
@@ -120,6 +174,9 @@
             <p>&copy; 2024 Finanční poradce. Všechna práva vyhrazena.</p>
         </div>
     </footer>
+    
+    <!-- Odkaz na externí JS soubor -->
+    <script src="kalkulacka.js"></script>
 
 </body>
 </html>

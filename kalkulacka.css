@@ -1,5 +1,3 @@
-/* Kalkulacka.css */
-
 /* Kontejner pro kalkulačky */
 .calculator {
     padding: 50px 0;
@@ -110,6 +108,18 @@
 
 .calculator-form button:hover {
     background-color: #0056b3;
+}
+
+/* Specifické formy pro Neživotní pojištění, Životní pojištění a Úvěry */
+#life-insurance-form,
+#non-life-insurance-form,
+#loan-calculator-form {
+    display: none;
+}
+
+/* Aktivní forma bude viditelná */
+.calculator-form.active {
+    display: block;
 }
 
 /* Responsive design */
