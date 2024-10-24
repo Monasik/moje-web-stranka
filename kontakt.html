@@ -44,22 +44,22 @@
                 </div>
                 <div class="contact-form">
                     <h3>Odešlete nám zprávu</h3>
-                    <form>
-                        <input type="text" placeholder="Vaše jméno" required>
-                        <input type="email" placeholder="Váš email" required>
-                                        
-                         <!-- Phone input with country code selector and flags -->
-                         <div class="phone-input">
-                           <select required>
-                              <option value="+420" selected>🇨🇿 +420</option>
-                              <option value="+421">🇸🇰 +421</option>
-                              <option value="+43">🇪🇹 +43</option>
-                              <option value="+49">🇩🇪 +49</option>
+                    <form id="contact-page-form">
+                        <input type="text" id="name" placeholder="Vaše jméno" required>
+                        <input type="email" id="email" placeholder="Váš email" required>
+                        
+                        <!-- Phone input with country code selector and flags -->
+                        <div class="phone-input">
+                            <select id="countryCode" required>
+                                <option value="+420" selected>🇨🇿 +420</option>
+                                <option value="+421">🇸🇰 +421</option>
+                                <option value="+43">🇪🇹 +43</option>
+                                <option value="+49">🇩🇪 +49</option>
                             </select>
-                           <input type="tel" placeholder="Telefonní číslo" pattern="[0-9]{9}" required>
-                          </div>
+                            <input type="tel" id="phone" placeholder="Telefonní číslo" pattern="[0-9]{9}" required>
+                        </div>
 
-                        <textarea placeholder="Vaše zpráva" required></textarea>
+                        <textarea id="message" placeholder="Vaše zpráva" required></textarea>
                         <button type="submit">Odeslat</button>
                     </form>
                 </div>
@@ -73,6 +73,44 @@
             <p>&copy; 2024 Finanční poradce. Všechna práva vyhrazena.</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('contact-page-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Zabraň defaultnímu chování formuláře
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const countryCode = document.getElementById('countryCode').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            const formData = {
+                name: name,
+                email: email,
+                phone: `${countryCode}${phone}`,
+                message: message
+            };
+
+            try {
+                const response = await fetch('https://moje-web-stranka.vercel.app/send-to-hubspot', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert('Formulář byl úspěšně odeslán.');
+                } else {
+                    alert('Něco se pokazilo. Zkuste to znovu.');
+                }
+            } catch (error) {
+                console.error('Chyba při odesílání:', error);
+                alert('Něco se pokazilo. Zkuste to znovu.');
+            }
+        });
+    </script>
 
 </body>
 </html>
