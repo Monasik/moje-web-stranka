@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulačka | Finanční poradce</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Odkaz na hlavní CSS soubor -->
+    <link rel="stylesheet" href="kalkulacka.css"> <!-- Specifický CSS pro kalkulačku -->
+</head>
+<body>
+
+    <!-- Navigační lišta -->
+    <nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
+        <ul id="nav-menu" class="nav-menu">
+            <li><a href="index.html">Domů</a></li>
+            <li><a href="omne.html">O mně</a></li>
+            <li><a href="sluzby.html">Služby</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="kalkulacka.html">Kalkulačka</a></li>
+            <li><a href="partneri.html">Partneři</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+
+    <!-- Sekce Kalkulačka -->
+    <section id="calculator" class="calculator">
+        <div class="container">
+            <h2>Pojišťovací kalkulačky</h2>
+            <p>Zvolte si jednu z možností pro výpočet pojištění a získejte přehledné informace o vašich možnostech.</p>
+
+            <div class="calculator-options">
+                <div class="calculator-item">
+                    <h3>Pojištění vozů</h3>
+                    <p>Vyplňte základní informace o vozidle a zjistěte nabídky pojištění.</p>
+                    <a href="#auto-insurance-calculator" class="btn">Otevřít kalkulačku</a>
+                </div>
+
+                <div class="calculator-item">
+                    <h3>Osobní pojištění</h3>
+                    <p>Zjistěte více o možnostech životního a úrazového pojištění.</p>
+                    <a href="#personal-insurance-calculator" class="btn">Otevřít kalkulačku</a>
+                </div>
+
+                <div class="calculator-item">
+                    <h3>Úvěry</h3>
+                    <p>Porovnejte nabídky úvěrů a najděte tu nejlepší možnost financování.</p>
+                    <a href="#loan-calculator" class="btn">Otevřít kalkulačku</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekce pro různé kalkulačky -->
+    <section id="auto-insurance-calculator" class="calculator-form">
+        <div class="container">
+            <h3>Kalkulačka pojištění vozů</h3>
+            <form>
+                <label for="car-make">Značka vozidla:</label>
+                <input type="text" id="car-make" name="car-make" placeholder="Zadejte značku vozidla" required>
+
+                <label for="car-model">Model vozidla:</label>
+                <input type="text" id="car-model" name="car-model" placeholder="Zadejte model vozidla" required>
+
+                <label for="car-year">Rok výroby:</label>
+                <input type="number" id="car-year" name="car-year" placeholder="Zadejte rok výroby" required>
+
+                <button type="submit" class="btn">Vypočítat</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="personal-insurance-calculator" class="calculator-form">
+        <div class="container">
+            <h3>Kalkulačka osobního pojištění</h3>
+            <form>
+                <label for="age">Věk:</label>
+                <input type="number" id="age" name="age" placeholder="Zadejte váš věk" required>
+
+                <label for="occupation">Povolání:</label>
+                <input type="text" id="occupation" name="occupation" placeholder="Zadejte vaše povolání" required>
+
+                <button type="submit" class="btn">Vypočítat</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="loan-calculator" class="calculator-form">
+        <div class="container">
+            <h3>Kalkulačka úvěrů</h3>
+            <form>
+                <label for="loan-amount">Výše úvěru:</label>
+                <input type="number" id="loan-amount" name="loan-amount" placeholder="Zadejte výši úvěru" required>
+
+                <label for="loan-term">Doba splácení (v letech):</label>
+                <input type="number" id="loan-term" name="loan-term" placeholder="Zadejte dobu splácení" required>
+
+                <button type="submit" class="btn">Vypočítat</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Patička -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Finanční poradce. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
