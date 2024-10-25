@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Funkce pro odeslání dat do HubSpotu
 async function sendToHubSpot(data) {
-    const yourApiKey = process.env.HUBSPOT_API_KEY; // Použití API klíče z prostředí
     const response = await fetch(`https://api.hubapi.com/contacts/v1/contact?hapikey=${yourApiKey}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
