@@ -57,8 +57,9 @@
     <section id="life-insurance-form" class="calculator-form" style="display: block;">
         <div class="container">
             <h3>Kalkulačka životního pojištění</h3>
-            <form>
+            <form id="ZP-form">
                 <label for="age">Věk:</label>
+                <input type="hidden" name="form_source" value="ZP">
                 <input type="number" id="age" name="age" placeholder="Zadejte váš věk" required>
 
                 <label for="occupation">Povolání:</label>
@@ -88,8 +89,9 @@
     <section id="auto-insurance-form" class="calculator-form non-life-sub-form" style="display: none;">
         <div class="container">
             <h3>Pojištění vozidla</h3>
-            <form>
+            <form id="auto-form">
                 <label for="coverage-type">Typ pojištění:</label>
+                <input type="hidden" name="form_source" value="Auto">
                 <select id="coverage-type" name="coverage-type">
                     <option value="pov">POV</option>
                     <option value="hav">HAV</option>
@@ -114,8 +116,9 @@
     <section id="home-insurance-form" class="calculator-form non-life-sub-form" style="display: none;">
         <div class="container">
             <h3>Pojištění Dům/Byt</h3>
-            <form>
+            <form id="nemovitost-form">
                 <label for="property-type">Typ nemovitosti:</label>
+                <input type="hidden" name="form_source" value="Nemovitost">
                 <select id="property-type" name="property-type" onchange="togglePropertyForm()">
                     <option value="house">Dům</option>
                     <option value="apartment">Byt</option>
@@ -157,8 +160,9 @@
     <section id="other-insurance-form" class="calculator-form non-life-sub-form" style="display: none;">
         <div class="container">
             <h3>Ostatní pojištění</h3>
-            <form>
+            <form id="ostatni-form">
                 <label for="custom-request">Popište požadované pojištění:</label>
+                <input type="hidden" name="form_source" value="Ostatni">
                 <textarea id="custom-request" name="custom-request" placeholder="Zadejte, co byste si přáli"></textarea>
 
                 <p>Nápověda: Zaměstnanecká odpovědnost, odpovědnost firem, ...</p>
@@ -178,6 +182,5 @@
     
     <!-- Odkaz na externí JS soubor -->
     <script src="kalkulacka.js"></script>
-
 </body>
 </html>
