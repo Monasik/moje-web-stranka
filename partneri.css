@@ -66,3 +66,38 @@ footer p {
     margin: 0 auto;
     flex: 1;
 }
+
+/* Stylizace pro mobilní zařízení */
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+        color: white;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        text-align: center;
+    }
+
+    /* Skrýt menu po kliknutí mimo nabídku */
+    body {
+        position: relative;
+    }
+}
+
+.hamburger.active + .nav-menu {
+    display: flex;
+}
+
+body.clicked-outside .nav-menu {
+    display: none;
+}
