@@ -1,8 +1,3 @@
-function toggleMenu() {
-    const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('active');
-}
-
 // Funkce pro zobrazení příslušného formuláře
 function showForm(formId) {
     const forms = document.querySelectorAll('.calculator-form, .non-life-sub-form');
@@ -25,18 +20,14 @@ document.getElementById('property-type').addEventListener('change', function() {
     const houseForm = document.getElementById('house-form');
     const apartmentForm = document.getElementById('apartment-form');
 
-    console.log(`Selected type: ${selectedType}`);  // Přidáme výpis pro sledování
-
     // Skryjeme oba formuláře
     houseForm.style.display = 'none';
     apartmentForm.style.display = 'none';
 
     // Zobrazíme formulář podle výběru
     if (selectedType === 'house') {
-        console.log('Displaying house form');
         houseForm.style.display = 'block';
     } else if (selectedType === 'apartment') {
-        console.log('Displaying apartment form');
         apartmentForm.style.display = 'block';
     }
 });
@@ -47,8 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const houseForm = document.getElementById('house-form');
     const apartmentForm = document.getElementById('apartment-form');
 
-    console.log('Setting default form to house');
-    
     // Zkontrolujeme, že se výchozí hodnota nastaví správně a zobrazíme formulář pro Dům
     propertyType.value = 'house';
     houseForm.style.display = 'block';
@@ -57,16 +46,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Funkce pro odeslání dat do HubSpotu
 async function sendToHubSpot(data) {
-    const response = await fetch(`https://api.hubapi.com/contacts/v1/contact?hapikey=${yourApiKey}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    });
+    try {
+        const response = await fetch('https://moje-web-stranka.vercel.app/send-to-hubspot', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
 
-    if (response.ok) {
-        console.log("Lead byl úspěšně odeslán do HubSpotu!");
-    } else {
-        console.error("Nastala chyba při odesílání leadu:", await response.text());
+        if (response.ok) {
+            console.log("Lead byl úspěšně odeslán do HubSpotu!");
+        } else {
+            console.error("Nastala chyba při odesílání leadu:", await response.text());
+        }
+    } catch (error) {
+        console.error("Chyba při volání API:", error);
     }
 }
 
