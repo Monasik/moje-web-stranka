@@ -51,7 +51,3 @@ body.clicked-outside .nav-menu {
     font-size: 2.5rem;
     margin-bottom: 30px;
 }
-
-* {
-    outline: 1px solid red;
-}
