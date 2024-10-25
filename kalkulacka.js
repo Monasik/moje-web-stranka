@@ -131,3 +131,8 @@ document.getElementById("ostatni-form").addEventListener("submit", async functio
 
     await sendToHubSpot(data);
 });
+
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+       } 
