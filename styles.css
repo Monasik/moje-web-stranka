@@ -292,22 +292,24 @@ footer p {
 
 @media only screen and (max-width: 768px) {
     .hamburger {
-        display: block;
-        font-size: 24px;
-        cursor: pointer;
-        padding: 10px;
-        color: white;
+        display: block; /* Zobrazí hamburger ikonu na menších zařízeních */
+        font-size: 24px; /* Nastaví velikost ikony */
+        cursor: pointer; /* Nastaví kurzor na ukazatel při najetí myší */
+        padding: 10px; /* Přidá vnitřní odsazení kolem ikony */
+        color: white; /* Nastaví barvu ikony na bílou */
     }
 
     .nav-menu {
-        display: none;
-        flex-direction: column;
-        gap: 10px;
+        display: none; /* Skryje navigační menu */
+        flex-direction: column; /* Položky budou pod sebou */
+        gap: 10px; /* Mezera mezi položkami */
+        background-color: #0044cc; /* Modré pozadí pro navigační menu na mobilu */
+        padding: 10px; /* Vnitřní odsazení pro navigační menu */
     }
 
     .nav-menu.active {
-        display: flex;
-        text-align: center;
+        display: flex; /* Zobrazí navigační menu po kliknutí na hamburger */
+        text-align: center; /* Vycentruje text navigačních položek */
     }
 }
 

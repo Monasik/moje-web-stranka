@@ -58,6 +58,13 @@
     background-color: #0056b3;
 }
 
+.non-life-options-buttons {
+    display: flex;
+    justify-content: center; /* Horizontální zarovnání na střed */
+    align-items: center; /* Vertikální zarovnání na střed (pokud je třeba) */
+}
+
+
 /* Sekce jednotlivých kalkulaček */
 .calculator-form {
     padding: 50px 0;

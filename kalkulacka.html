@@ -17,7 +17,7 @@
         </div>
         <ul id="nav-menu" class="nav-menu">
             <li><a href="index.html">Domů</a></li>
-            <li><a href="omne.html">O mně</a></li>
+            <li><a href="onas.html">O nás</a></li>
             <li><a href="sluzby.html">Služby</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
             <li><a href="kalkulacka.html">Kalkulačka</a></li>
@@ -73,7 +73,7 @@
     <section id="non-life-insurance-form" class="calculator-form" style="display: none;">
         <div class="container">
             <h3>Kalkulačka neživotního pojištění</h3>
-            <div class="non-life-options" id="non-life-options">
+            <div class="non-life-options" id="non-life-options" style="text-align: center;">
                 <h4>Vyberte typ pojištění:</h4>
                 <div class="non-life-options-buttons">
                     <button onclick="showNonLifeSubForm('auto-insurance-form')" class="btn">Auto</button>
@@ -85,7 +85,7 @@
     </section>
 
     <!-- Formulář pro pojištění auta -->
-    <section id="auto-insurance-form" class="non-life-sub-form" style="display: none;">
+    <section id="auto-insurance-form" class="calculator-form non-life-sub-form" style="display: none;">
         <div class="container">
             <h3>Pojištění vozidla</h3>
             <form>
@@ -111,18 +111,18 @@
     </section>
 
     <!-- Formulář pro pojištění Dům/Byt -->
-    <section id="home-insurance-form" class="non-life-sub-form" style="display: none;">
+    <section id="home-insurance-form" class="calculator-form non-life-sub-form" style="display: none;">
         <div class="container">
             <h3>Pojištění Dům/Byt</h3>
             <form>
                 <label for="property-type">Typ nemovitosti:</label>
-                <select id="property-type" name="property-type">
+                <select id="property-type" name="property-type" onchange="togglePropertyForm()">
                     <option value="house">Dům</option>
                     <option value="apartment">Byt</option>
                 </select>
 
                 <!-- Formulář pro Dům -->
-                <div id="house-form" style="display: none;">
+                <div id="house-form" class="property-form" style="display: none;">
                     <label for="house-value">Hodnota domu:</label>
                     <input type="number" id="house-value" name="house-value" placeholder="Zadejte hodnotu domu">
 
@@ -140,11 +140,11 @@
                 </div>
 
                 <!-- Formulář pro Byt -->
-                <div id="apartment-form" style="display: none;">
+                <div id="apartment-form" class="property-form" style="display: none;">
                     <label for="apartment-household-value">Hodnota domácnosti:</label>
                     <input type="number" id="apartment-household-value" name="apartment-household-value" placeholder="Zadejte hodnotu domácnosti">
 
-                    <label for="apartment-personal-liability">Pojištění odpovědnosti v běžném občanském životě (nepovinné):</label>
+                    <label for="apartment-personal-liability">Pojištění odpovědnosti v běžném občanskem životě (nepovinné):</label>
                     <input type="checkbox" id="apartment-personal-liability" name="apartment-personal-liability">
                 </div>
 
@@ -154,7 +154,7 @@
     </section>
 
     <!-- Formulář pro Ostatní -->
-    <section id="other-insurance-form" class="non-life-sub-form" style="display: none;">
+    <section id="other-insurance-form" class="calculator-form non-life-sub-form" style="display: none;">
         <div class="container">
             <h3>Ostatní pojištění</h3>
             <form>
@@ -167,6 +167,7 @@
             </form>
         </div>
     </section>
+
 
     <!-- Patička -->
     <footer>
