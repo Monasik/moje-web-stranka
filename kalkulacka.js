@@ -69,12 +69,10 @@ document.getElementById("ZP-form").addEventListener("submit", async function(eve
     const formData = new FormData(event.target);
 
     const data = {
-        properties: [
-            { property: "form_source", value: formData.get("form_source") },
-            { property: "age", value: formData.get("age") },
-            { property: "occupation", value: formData.get("occupation") }
-        ]
-    };
+    "form_source": formData.get("form_source"),
+    "age": formData.get("age"),
+    "occupation": formData.get("occupation")
+  }
 
     await sendToHubSpot(data);
 });
