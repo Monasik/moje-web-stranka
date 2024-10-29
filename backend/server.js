@@ -50,7 +50,6 @@ app.post('/chat', async (req, res) => {
     try {
         console.log('Před voláním OpenAI API');
         // Přidání prodlevy 1 sekundu (1000 ms)
-        await delay(1000);
 
         const response = await axios.post('https://api.openai.com/v1/chat/completions', {
             model: 'gpt-4o-mini',
