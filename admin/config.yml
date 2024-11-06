@@ -1,1 +1,17 @@
 npm install netlify-cms-app
+backend:
+  name: git-gateway
+  branch: main # nebo jinou větev, kterou používáš
+
+media_folder: "public/img/uploads" # cesta k obrázkům
+public_folder: "/img/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    folder: "src/pages" # cesta ke složce, kde se nachází obsah stránek
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
