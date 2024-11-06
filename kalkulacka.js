@@ -17,11 +17,6 @@ async function sendToHubSpot(data) {
     }
 }
 
-// Přidání aktuálního data do objektu
-function addSubmissionDate(data) {
-    const today = new Date().toISOString().split('T')[0]; // Formátování data na YYYY-MM-DD
-    data.properties.push({ property: "submission_date", value: today });
-}
 
 // Zpracování formuláře pro životní pojištění
 document.getElementById("ZP-form").addEventListener("submit", async function(event) {
