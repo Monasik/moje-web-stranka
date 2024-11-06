@@ -2,18 +2,21 @@
 async function sendToHubSpot(data) {
     try {
         const response = await fetch('https://moje-web-stranka.vercel.app/send-to-hubspot', {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
         });
 
         if (response.ok) {
-            console.log("Lead byl úspěšně odeslán do HubSpotu!");
+            alert('Formulář byl úspěšně odeslán.');
         } else {
-            console.error("Nastala chyba při odesílání leadu:", await response.text());
+            alert('Něco se pokazilo. Zkuste to znovu.');
         }
     } catch (error) {
-        console.error("Chyba při volání API:", error);
+        console.error('Chyba při odesílání:', error);
+        alert('Něco se pokazilo. Zkuste to znovu.');
     }
 }
 
