@@ -1,49 +1,3 @@
-// Funkce pro zobrazení příslušného formuláře
-function showForm(formId) {
-    const forms = document.querySelectorAll('.calculator-form, .non-life-sub-form');
-    forms.forEach(form => form.style.display = 'none');
-
-    document.getElementById(formId).style.display = 'block';
-}
-
-// Funkce pro zobrazení podformulářů pro neživotní pojištění
-function showNonLifeSubForm(formId) {
-    const subForms = document.querySelectorAll('.non-life-sub-form');
-    subForms.forEach(form => form.style.display = 'none');
-
-    document.getElementById(formId).style.display = 'block';
-}
-
-// Funkce pro zobrazení specifických polí pro Dům nebo Byt
-document.getElementById('property-type').addEventListener('change', function() {
-    const selectedType = this.value;
-    const houseForm = document.getElementById('house-form');
-    const apartmentForm = document.getElementById('apartment-form');
-
-    // Skryjeme oba formuláře
-    houseForm.style.display = 'none';
-    apartmentForm.style.display = 'none';
-
-    // Zobrazíme formulář podle výběru
-    if (selectedType === 'house') {
-        houseForm.style.display = 'block';
-    } else if (selectedType === 'apartment') {
-        apartmentForm.style.display = 'block';
-    }
-});
-
-// Zajistíme, že formulář pro Dům bude viditelný po načtení stránky
-document.addEventListener('DOMContentLoaded', function() {
-    const propertyType = document.getElementById('property-type');
-    const houseForm = document.getElementById('house-form');
-    const apartmentForm = document.getElementById('apartment-form');
-
-    // Zkontrolujeme, že se výchozí hodnota nastaví správně a zobrazíme formulář pro Dům
-    propertyType.value = 'house';
-    houseForm.style.display = 'block';
-    apartmentForm.style.display = 'none';
-});
-
 // Funkce pro odeslání dat do HubSpotu
 async function sendToHubSpot(data) {
     try {
@@ -63,17 +17,26 @@ async function sendToHubSpot(data) {
     }
 }
 
+// Přidání aktuálního data do objektu
+function addSubmissionDate(data) {
+    const today = new Date().toISOString().split('T')[0]; // Formátování data na YYYY-MM-DD
+    data.properties.push({ property: "submission_date", value: today });
+}
+
 // Zpracování formuláře pro životní pojištění
 document.getElementById("ZP-form").addEventListener("submit", async function(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
 
     const data = {
-    "form_source": formData.get("form_source"),
-    "age": formData.get("age"),
-    "occupation": formData.get("occupation")
-  }
+        properties: [
+            { property: "form_source", value: formData.get("form_source") },
+            { property: "age", value: formData.get("age") },
+            { property: "occupation", value: formData.get("occupation") }
+        ]
+    };
 
+    addSubmissionDate(data);
     await sendToHubSpot(data);
 });
 
@@ -92,6 +55,7 @@ document.getElementById("auto-form").addEventListener("submit", async function(e
         ]
     };
 
+    addSubmissionDate(data);
     await sendToHubSpot(data);
 });
 
@@ -112,6 +76,7 @@ document.getElementById("nemovitost-form").addEventListener("submit", async func
         ]
     };
 
+    addSubmissionDate(data);
     await sendToHubSpot(data);
 });
 
@@ -127,10 +92,6 @@ document.getElementById("ostatni-form").addEventListener("submit", async functio
         ]
     };
 
+    addSubmissionDate(data);
     await sendToHubSpot(data);
 });
-
-        function toggleMenu() {
-            const navMenu = document.getElementById('nav-menu');
-            navMenu.classList.toggle('active');
-       } 
