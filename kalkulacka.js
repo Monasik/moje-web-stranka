@@ -30,11 +30,11 @@ document.getElementById("ZP-form").addEventListener("submit", async function(eve
         properties: [
             { property: "form_source", value: formData.get("form_source") },
             { property: "age", value: formData.get("age") },
-            { property: "cisty_mesicni_prijem", value: formData.get("cisty_mesicny_prijem") }
-            { property: "name", value: formData.get("name") }
-            { property: "city", value: formData.get("city") }
-            { property: "phone", value: formData.get("phone") }
-            { property: "region", value: formData.get("region") }
+            { property: "cisty_mesicni_prijem", value: formData.get("cisty_mesicny_prijem") },
+            { property: "name", value: formData.get("name") },
+            { property: "city", value: formData.get("city") },
+            { property: "phone", value: formData.get("phone") },
+            { property: "region", value: formData.get("region") },
         ]
     };
 
