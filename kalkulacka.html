@@ -55,20 +55,32 @@
 
     <!-- Formulář pro životní pojištění -->
     <section id="life-insurance-form" class="calculator-form" style="display: block;">
-        <div class="container">
-            <h3>Kalkulačka životního pojištění</h3>
-            <form id="ZP-form">
-                <label for="age">Věk:</label>
-                <input type="hidden" name="form_source" value="ZP">
-                <input type="number" id="age" name="age" placeholder="Zadejte váš věk" required>
+    <div class="container">
+        <h3>Kalkulačka životního pojištění</h3>
+        <form id="ZP-form">
+            <label for="first-name">Jméno:</label>
+            <input type="text" id="first-name" name="first_name" placeholder="Zadejte vaše jméno" required>
 
-                <label for="occupation">Povolání:</label>
-                <input type="text" id="occupation" name="occupation" placeholder="Zadejte vaše povolání" required>
+            <label for="last-name">Příjmení:</label>
+            <input type="text" id="last-name" name="last_name" placeholder="Zadejte vaše příjmení" required>
 
-                <button type="submit" class="btn">Vypočítat</button>
-            </form>
-        </div>
-    </section>
+            <label for="city-zip">Město a PSČ:</label>
+            <input type="text" id="city-zip" name="city_zip" placeholder="Zadejte město a PSČ" required>
+
+            <label for="phone">Telefon:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Zadejte vaše telefonní číslo" required>
+
+            <label for="age">Věk:</label>
+            <input type="number" id="age" name="age" placeholder="Zadejte váš věk" required>
+
+            <label for="income">Čistý příjem:</label>
+            <input type="number" id="income" name="income" placeholder="Zadejte váš čistý příjem" required>
+
+            <button type="submit" class="btn">Vypočítat</button>
+        </form>
+    </div>
+</section>
+
 
     <!-- Formulář pro neživotní pojištění -->
     <section id="non-life-insurance-form" class="calculator-form" style="display: none;">
