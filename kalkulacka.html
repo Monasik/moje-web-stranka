@@ -57,15 +57,36 @@
     <section id="life-insurance-form" class="calculator-form" style="display: block;">
     <div class="container">
         <h3>Kalkulačka životního pojištění</h3>
-        <form id="ZP-form">
+        <form id="ZP-form" method="POST" action="URL_TVÉHO_HUBSPOT_FORMULÁŘE">
+            <input type="hidden" name="form_source" value="ZP"> <!-- Identifikace zdroje -->
+
             <label for="first-name">Jméno:</label>
-            <input type="text" id="first-name" name="first_name" placeholder="Zadejte vaše jméno" required>
+            <input type="text" id="first-name" name="firstname" placeholder="Zadejte vaše jméno" required>
 
             <label for="last-name">Příjmení:</label>
-            <input type="text" id="last-name" name="last_name" placeholder="Zadejte vaše příjmení" required>
+            <input type="text" id="last-name" name="lastname" placeholder="Zadejte vaše příjmení" required>
 
-            <label for="city-zip">Město a PSČ:</label>
-            <input type="text" id="city-zip" name="city_zip" placeholder="Zadejte město a PSČ" required>
+            <label for="region">Kraj:</label>
+            <select id="region" name="region" required>
+                <option value="">Vyberte kraj</option>
+                <option value="Hlavní město Praha">Hlavní město Praha</option>
+                <option value="Středočeský kraj">Středočeský kraj</option>
+                <option value="Jihočeský kraj">Jihočeský kraj</option>
+                <option value="Plzeňský kraj">Plzeňský kraj</option>
+                <option value="Karlovarský kraj">Karlovarský kraj</option>
+                <option value="Ústecký kraj">Ústecký kraj</option>
+                <option value="Liberecký kraj">Liberecký kraj</option>
+                <option value="Královéhradecký kraj">Královéhradecký kraj</option>
+                <option value="Pardubický kraj">Pardubický kraj</option>
+                <option value="Kraj Vysočina">Kraj Vysočina</option>
+                <option value="Jihomoravský kraj">Jihomoravský kraj</option>
+                <option value="Olomoucký kraj">Olomoucký kraj</option>
+                <option value="Zlínský kraj">Zlínský kraj</option>
+                <option value="Moravskoslezský kraj">Moravskoslezský kraj</option>
+            </select>
+
+            <label for="city">Město:</label>
+            <input type="text" id="city" name="city" placeholder="Zadejte město" required>
 
             <label for="phone">Telefon:</label>
             <input type="tel" id="phone" name="phone" placeholder="Zadejte vaše telefonní číslo" required>
@@ -74,7 +95,7 @@
             <input type="number" id="age" name="age" placeholder="Zadejte váš věk" required>
 
             <label for="income">Čistý příjem:</label>
-            <input type="number" id="income" name="income" placeholder="Zadejte váš čistý příjem" required>
+            <input type="number" id="income" name="annual_income" placeholder="Zadejte váš čistý příjem" required>
 
             <button type="submit" class="btn">Vypočítat</button>
         </form>
