@@ -9,7 +9,7 @@ public_folder: "/img/uploads"
 collections:
   - name: "pages"
     label: "Pages"
-    folder: "main" # cesta ke složce, kde se nachází obsah stránek
+    folder: "" # cesta ke složce, kde se nachází obsah stránek
     create: true
     slug: "{{slug}}"
     fields:
