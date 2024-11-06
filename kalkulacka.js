@@ -31,7 +31,6 @@ document.getElementById("ZP-form").addEventListener("submit", async function(eve
         ]
     };
 
-    addSubmissionDate(data);
     await sendToHubSpot(data);
 });
 
@@ -50,7 +49,6 @@ document.getElementById("auto-form").addEventListener("submit", async function(e
         ]
     };
 
-    addSubmissionDate(data);
     await sendToHubSpot(data);
 });
 
@@ -71,7 +69,6 @@ document.getElementById("nemovitost-form").addEventListener("submit", async func
         ]
     };
 
-    addSubmissionDate(data);
     await sendToHubSpot(data);
 });
 
@@ -87,6 +84,5 @@ document.getElementById("ostatni-form").addEventListener("submit", async functio
         ]
     };
 
-    addSubmissionDate(data);
     await sendToHubSpot(data);
 });
