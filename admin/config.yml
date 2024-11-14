@@ -1,4 +1,4 @@
-npm install netlify-cms-app
+npm install netlify-cms-app #todo
 backend:
   name: git-gateway
   branch: main # nebo jinou větev, kterou používáš

@@ -10,7 +10,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors({
     origin: (origin, callback) => {
-        const allowedOrigins = ['https://jakub-jelinek.netlify.app'];
+        const allowedOrigins = ['https://jakub-jelinek.netlify.app', "http://localhost:3000"];
+
+        console.log({origin})
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
@@ -34,11 +36,6 @@ const limiter = rateLimit({
 
 // Použití Rate Limiteru na endpoint /chat
 app.use('/chat', limiter);
-
-// Funkce pro prodlevu
-function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 const apiKey = process.env.OPENAI_API_KEY;
 const hubspotApiKey = process.env.HUBSPOT_API_KEY;
